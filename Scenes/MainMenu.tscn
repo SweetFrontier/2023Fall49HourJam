@@ -1,6 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://7yulnf22mqsv"]
+[gd_scene load_steps=16 format=3 uid="uid://7yulnf22mqsv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
+sky_top_color = Color(0.184314, 0.729412, 1, 1)
+sky_horizon_color = Color(0, 0.419608, 0.462745, 1)
+ground_bottom_color = Color(0.176471, 0.541176, 0.156863, 1)
+ground_horizon_color = Color(0.196078, 0.470588, 0.4, 1)
 
 [sub_resource type="Sky" id="Sky_dluij"]
 sky_material = SubResource("ProceduralSkyMaterial_ijkcj")
@@ -8,6 +12,86 @@ sky_material = SubResource("ProceduralSkyMaterial_ijkcj")
 [sub_resource type="Environment" id="Environment_h3g38"]
 background_mode = 2
 sky = SubResource("Sky_dluij")
+
+[sub_resource type="Animation" id="Animation_y8d7q"]
+resource_name = "cameraFloat"
+length = 28.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3),
+"points": PackedFloat32Array(0.154319, -3.5, 0, 3.5, 0, 0.320311, -3.5, 0, 3.5, 0, 0.154319, -3.5, 0, 3.5, 0),
+"times": PackedFloat32Array(0, 14, 28)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"points": PackedFloat32Array(0.598733, -1.75, 0, 1.75, 0, 0.629, -1.75, 0, 1.75, 0, 0.579409, -1.7, 0, 1.7, 0, 0.598733, -1.7, 0, 1.7, 0),
+"times": PackedFloat32Array(0, 7, 21.2, 28)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3),
+"points": PackedFloat32Array(0.988276, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_pgp45"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.154319, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.598733, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.988276, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkgc4"]
+_data = {
+"RESET": SubResource("Animation_pgp45"),
+"cameraFloat": SubResource("Animation_y8d7q")
+}
 
 [sub_resource type="Gradient" id="Gradient_b5sw0"]
 offsets = PackedFloat32Array(0, 0.486486, 0.494208, 1)
@@ -19,15 +103,27 @@ seed = 12
 frequency = 0.2253
 cellular_return_type = 0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oaivc"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3hr4u"]
 color_ramp = SubResource("Gradient_b5sw0")
 noise = SubResource("FastNoiseLite_gt3gs")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ta30e"]
-albedo_texture = SubResource("NoiseTexture2D_oaivc")
+albedo_texture = SubResource("NoiseTexture2D_3hr4u")
 albedo_texture_force_srgb = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jp3ir"]
+
+[sub_resource type="Gradient" id="Gradient_ec3dy"]
+offsets = PackedFloat32Array(0.467181, 0.478764, 0.517375, 0.525097)
+colors = PackedColorArray(0, 0, 0, 1, 0.972973, 0.972973, 0.972973, 1, 0.400636, 0.400636, 0.400636, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dmglq"]
+gradient = SubResource("Gradient_ec3dy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tow0f"]
+albedo_texture = SubResource("GradientTexture1D_dmglq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_flddr"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -38,12 +134,24 @@ transform = Transform3D(-0.727773, -0.371845, 0.576262, 0, 0.840254, 0.542192, -
 environment = SubResource("Environment_h3g38")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.929674, -0.0530577, 0.364543, 0, 0.989574, 0.144028, -0.368384, -0.133899, 0.919981, 0, 0.472662, 0.988276)
+transform = Transform3D(0.929674, -0.0530577, 0.364543, 0, 0.989574, 0.144028, -0.368384, -0.133899, 0.919981, 0.154319, 0.598733, 0.988276)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+autoplay = "cameraFloat"
+libraries = {
+"": SubResource("AnimationLibrary_nkgc4")
+}
+
+[node name="gras" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.93004, 0, 0, 0, 1, 0, 0, 0, 10.1059, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_ta30e")
 mesh = SubResource("PlaneMesh_jp3ir")
+
+[node name="road" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.817499, 0, -32.9175, 0, 1.12847, 0, 0.300473, 0, -89.5588, -26.278, 0.01, -68.213)
+material_override = SubResource("StandardMaterial3D_tow0f")
+mesh = SubResource("PlaneMesh_flddr")
+skeleton = NodePath("../gras")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -51,14 +159,14 @@ mesh = SubResource("PlaneMesh_jp3ir")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -190.0
+offset_left = -162.0
 offset_top = 70.0
-offset_right = 190.0
-offset_bottom = 96.0
+offset_right = 163.0
+offset_bottom = 142.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 50
-text = "Once, upon a 49 Hour Period."
+text = "Only One Lap"
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
@@ -72,5 +180,5 @@ offset_right = 20.5
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 60
-text = "Play"
+theme_override_font_sizes/font_size = 40
+text = "3 2 1 Therapy???"

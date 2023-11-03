@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpcwsp8fllas3"]
+
+[sub_resource type="Gradient" id="Gradient_3oxqj"]
+offsets = PackedFloat32Array(0, 0.486486, 0.494208, 1)
+colors = PackedColorArray(0.246701, 0.60184, 0, 1, 0.344369, 0.721341, 0.07604, 1, 0.334432, 0.707966, 0.070357, 1, 0.426158, 0.82419, 7.70092e-06, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3u1fx"]
+noise_type = 2
+seed = 12
+frequency = 0.2253
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oaivc"]
+color_ramp = SubResource("Gradient_3oxqj")
+noise = SubResource("FastNoiseLite_3u1fx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nlr5"]
+albedo_texture = SubResource("NoiseTexture2D_oaivc")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fov30"]
+
+[sub_resource type="Gradient" id="Gradient_f04y8"]
+offsets = PackedFloat32Array(0.467181, 0.478764, 0.517375, 0.525097)
+colors = PackedColorArray(0, 0, 0, 1, 0.972973, 0.972973, 0.972973, 1, 0.400636, 0.400636, 0.400636, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xjqp6"]
+gradient = SubResource("Gradient_f04y8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwetl"]
+albedo_texture = SubResource("GradientTexture1D_xjqp6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cfmhg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6fe0a"]
+
+[node name="Level" type="Node3D"]
+
+[node name="gras" type="MeshInstance3D" parent="."]
+transform = Transform3D(201.145, 0, 0, 0, 1, 0, 0, 0, 173.331, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_2nlr5")
+mesh = SubResource("PlaneMesh_fov30")
+
+[node name="road" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.817499, 0, -32.9175, 0, 1.12847, 0, 0.300473, 0, -89.5588, -26.278, 0.01, -68.213)
+material_override = SubResource("StandardMaterial3D_wwetl")
+mesh = SubResource("PlaneMesh_cfmhg")
+skeleton = NodePath("../gras")
+
+[node name="player" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.703654, 0, 0, 0, 0.68284, 0, 0, 0, 1, -0.290428, 0.655794, -0.272331)
+mesh = SubResource("BoxMesh_6fe0a")
