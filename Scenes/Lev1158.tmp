@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpcwsp8fllas3"]
+[gd_scene load_steps=14 format=3 uid="uid://ctywoq8865qo2"]
 
-[ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_03ipr"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_okwp7"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_0srpi"]
 
 [sub_resource type="Gradient" id="Gradient_3oxqj"]
 offsets = PackedFloat32Array(0, 0.486486, 0.494208, 1)
@@ -22,9 +21,6 @@ albedo_texture = SubResource("NoiseTexture2D_oaivc")
 albedo_texture_force_srgb = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fov30"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qovck"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="Gradient" id="Gradient_f04y8"]
 offsets = PackedFloat32Array(0.467181, 0.478764, 0.517375, 0.525097)
@@ -47,7 +43,7 @@ ground_horizon_color = Color(0.196078, 0.470588, 0.4, 1)
 [sub_resource type="Sky" id="Sky_dluij"]
 sky_material = SubResource("ProceduralSkyMaterial_ijkcj")
 
-[sub_resource type="Environment" id="Environment_rawl0"]
+[sub_resource type="Environment" id="Environment_t4el0"]
 background_mode = 2
 sky = SubResource("Sky_dluij")
 
@@ -58,22 +54,13 @@ transform = Transform3D(201.145, 0, 0, 0, 1, 0, 0, 0, 173.331, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_2nlr5")
 mesh = SubResource("PlaneMesh_fov30")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="grass"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="grass/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_qovck")
-
 [node name="road" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.817499, 0, -32.9175, 0, 1.12847, 0, 0.300473, 0, -89.5588, -26.278, 0.00999999, -68.213)
+transform = Transform3D(-0.817499, 0, -32.9175, 0, 1.12847, 0, 0.300473, 0, -89.5588, -26.278, 0.01, -68.213)
 material_override = SubResource("StandardMaterial3D_wwetl")
 mesh = SubResource("PlaneMesh_cfmhg")
 skeleton = NodePath("../grass")
 
-[node name="Racecar" parent="." instance=ExtResource("1_03ipr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-script = ExtResource("2_okwp7")
-
-[node name="Camera3D" type="Camera3D" parent="Racecar"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.75, -1)
-environment = SubResource("Environment_rawl0")
-fov = 69.9
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00951958, 1.23952, -0.0106964)
+environment = SubResource("Environment_t4el0")
+script = ExtResource("1_0srpi")
