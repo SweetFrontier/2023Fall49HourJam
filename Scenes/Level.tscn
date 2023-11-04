@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bbm3kqjuk47qc" path="res://Art/buttons/play.png" id="8_h38bi"]
 [ext_resource type="Texture2D" uid="uid://u4gplrg663yv" path="res://Art/buttons/playClicked.png" id="9_noodl"]
 [ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="10_ammnk"]
-[ext_resource type="PackedScene" uid="uid://d1ymqb0oqbi3g" path="res://Scenes/Communication.tscn" id="11_7wyq8"]
+[ext_resource type="PackedScene" path="res://Scenes/Communication.tscn" id="11_7wyq8"]
 [ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
