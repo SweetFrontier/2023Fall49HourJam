@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://h2ebsepmvony"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://cgm5lroquafo1" path="res://Art/Terrain/new_terrain_3d_storage.res" id="1_gejk0"]
+
+[sub_resource type="Terrain3DTextureList" id="Terrain3DTextureList_g1ggj"]
+
+[node name="Environment" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_gejk0")
+texture_list = SubResource("Terrain3DTextureList_g1ggj")
