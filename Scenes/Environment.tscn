@@ -12,6 +12,7 @@ albedo_texture = ExtResource("2_kj5dk")
 normal_texture = ExtResource("3_jore1")
 
 [sub_resource type="Terrain3DTexture" id="Terrain3DTexture_xp428"]
+name = "Asphalt"
 texture_id = 1
 albedo_texture = ExtResource("4_3mibl")
 normal_texture = ExtResource("5_najss")

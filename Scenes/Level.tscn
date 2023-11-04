@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bpcwsp8fllas3"]
+[gd_scene load_steps=16 format=3 uid="uid://bpcwsp8fllas3"]
 
 [ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_03ipr"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_okwp7"]
@@ -10,43 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bbm3kqjuk47qc" path="res://Art/buttons/play.png" id="8_h38bi"]
 [ext_resource type="Texture2D" uid="uid://u4gplrg663yv" path="res://Art/buttons/playClicked.png" id="9_noodl"]
 [ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="10_ammnk"]
-[ext_resource type="PackedScene" uid="uid://d1ymqb0oqbi3g" path="res://Scenes/Communication.tscn" id="11_7wyq8"]
+[ext_resource type="PackedScene" path="res://Scenes/Communication.tscn" id="11_7wyq8"]
 [ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
-
-[sub_resource type="Gradient" id="Gradient_3oxqj"]
-offsets = PackedFloat32Array(0, 0.486486, 0.494208, 1)
-colors = PackedColorArray(0.246701, 0.60184, 0, 1, 0.344369, 0.721341, 0.07604, 1, 0.334432, 0.707966, 0.070357, 1, 0.426158, 0.82419, 7.70092e-06, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3u1fx"]
-noise_type = 2
-seed = 12
-frequency = 0.2253
-cellular_return_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oaivc"]
-color_ramp = SubResource("Gradient_3oxqj")
-noise = SubResource("FastNoiseLite_3u1fx")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nlr5"]
-albedo_texture = SubResource("NoiseTexture2D_oaivc")
-albedo_texture_force_srgb = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_fov30"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qovck"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
-
-[sub_resource type="Gradient" id="Gradient_f04y8"]
-offsets = PackedFloat32Array(0.467181, 0.478764, 0.517375, 0.525097)
-colors = PackedColorArray(0, 0, 0, 1, 0.972973, 0.972973, 0.972973, 1, 0.400636, 0.400636, 0.400636, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xjqp6"]
-gradient = SubResource("Gradient_f04y8")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwetl"]
-albedo_texture = SubResource("GradientTexture1D_xjqp6")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_cfmhg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
 sky_top_color = Color(0.184314, 0.729412, 1, 1)
@@ -63,29 +28,12 @@ sky = SubResource("Sky_dluij")
 
 [node name="Level" type="Node3D"]
 
-[node name="grass" type="MeshInstance3D" parent="."]
-transform = Transform3D(201.145, 0, 0, 0, 1, 0, 0, 0, 173.331, 0, 0, 0)
-visible = false
-material_overlay = SubResource("StandardMaterial3D_2nlr5")
-mesh = SubResource("PlaneMesh_fov30")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="grass"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="grass/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_qovck")
-
-[node name="road" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.817499, 0, -32.9175, 0, 1.12847, 0, 0.300473, 0, -89.5588, -26.278, 0.00999999, -68.213)
-visible = false
-material_override = SubResource("StandardMaterial3D_wwetl")
-mesh = SubResource("PlaneMesh_cfmhg")
-skeleton = NodePath("../grass")
-
 [node name="Racecar" parent="." instance=ExtResource("1_03ipr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(0.191494, 0, 0.981494, 0, 1, 0, -0.981494, 0, 0.191494, -4.75653, -47.5124, -632.37)
 script = ExtResource("2_okwp7")
 MAX_STEER = 1.5
 ENGINE_POWER = 400
+metadata/_edit_group_ = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Racecar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590005, 0.972212, 1.09557)
