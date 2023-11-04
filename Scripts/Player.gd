@@ -9,6 +9,4 @@ signal update_dialog_index(index)
 func _physics_process(delta: float) -> void:
 	steering = lerp(steering, Input.get_axis("right", "left") * MAX_STEER * 0.4, 5 * delta)
 	engine_force = Input.get_axis("back", "forward") * ENGINE_POWER
-	
-	if Input.is_key_pressed(KEY_0):
-		update_dialog_index.emit(1)
+	quaternion.z = lerp(quaternion.z, 0.0, delta * 10)
