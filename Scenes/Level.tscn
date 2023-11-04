@@ -136,6 +136,7 @@ theme_override_font_sizes/font_size = 50
 text = "Paused"
 
 [node name="PlayButton" type="TextureButton" parent="GUI/PauseMenu"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 84.0
