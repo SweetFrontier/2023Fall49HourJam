@@ -1,7 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpcwsp8fllas3"]
+[gd_scene load_steps=24 format=3 uid="uid://bpcwsp8fllas3"]
 
 [ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_03ipr"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_okwp7"]
+[ext_resource type="AudioStream" uid="uid://bu4lkvtyrho5s" path="res://Audio/Music/RaceOnceMusic.mp3" id="3_f1ggh"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="4_aty8r"]
+[ext_resource type="Texture2D" uid="uid://b66cmhidn4q12" path="res://Art/buttons/pause.png" id="4_bg4jk"]
+[ext_resource type="Texture2D" uid="uid://cxbq4nw0quapt" path="res://Art/buttons/pauseClicked.png" id="5_mk74g"]
+[ext_resource type="Texture2D" uid="uid://cvi41tp7ncl77" path="res://Art/buttons/pauseHover.png" id="6_fr2uf"]
+[ext_resource type="Texture2D" uid="uid://bbm3kqjuk47qc" path="res://Art/buttons/play.png" id="8_h38bi"]
+[ext_resource type="Texture2D" uid="uid://u4gplrg663yv" path="res://Art/buttons/playClicked.png" id="9_noodl"]
+[ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="10_ammnk"]
 
 [sub_resource type="Gradient" id="Gradient_3oxqj"]
 offsets = PackedFloat32Array(0, 0.486486, 0.494208, 1)
@@ -73,7 +81,69 @@ skeleton = NodePath("../grass")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_okwp7")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Racecar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590005, 0.972212, 1.09557)
+stream = ExtResource("3_f1ggh")
+autoplay = true
+
 [node name="Camera3D" type="Camera3D" parent="Racecar"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.75, -1)
 environment = SubResource("Environment_rawl0")
 fov = 69.9
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PauseButton" type="TextureButton" parent="GUI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 84.0
+focus_mode = 0
+texture_normal = ExtResource("4_bg4jk")
+texture_pressed = ExtResource("5_mk74g")
+texture_hover = ExtResource("6_fr2uf")
+
+[node name="PauseMenu" type="Control" parent="GUI"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_aty8r")
+
+[node name="BackgroundColor" type="ColorRect" parent="GUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.768627)
+
+[node name="PauseLabel" type="Label" parent="GUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 50.0
+offset_right = 88.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+
+[node name="PlayButton" type="TextureButton" parent="GUI/PauseMenu"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 84.0
+focus_mode = 0
+texture_normal = ExtResource("8_h38bi")
+texture_pressed = ExtResource("9_noodl")
+texture_hover = ExtResource("10_ammnk")
+
+[connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
+[connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
