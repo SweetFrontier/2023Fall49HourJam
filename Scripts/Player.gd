@@ -1,14 +1,9 @@
 extends VehicleBody3D
 
-const MAX_STEER = 0.8
-const ENGINE_POWER = 300
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
+@export var MAX_STEER: float = 0.4
+@export var ENGINE_POWER: int = 200
 
 # Called every frame. 'delta' is the elapsed time since the previous frwwwwwwwwame.
-func _process(delta):
-	steering = move_toward(steering, Input.get_axis("ui_right", "ui_left") * MAX_STEER, delta * 2.5)
-	engine_force = Input.get_axis("ui_down", "ui_up") * ENGINE_POWER
+func _physics_process(delta: float) -> void:
+	steering = lerp(steering, Input.get_axis("right", "left") * MAX_STEER * 0.4, 5 * delta)
+	engine_force = Input.get_axis("back", "forward") * ENGINE_POWER
