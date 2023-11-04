@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bpcwsp8fllas3"]
+[gd_scene load_steps=25 format=3 uid="uid://bpcwsp8fllas3"]
 
 [ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_03ipr"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_okwp7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bbm3kqjuk47qc" path="res://Art/buttons/play.png" id="8_h38bi"]
 [ext_resource type="Texture2D" uid="uid://u4gplrg663yv" path="res://Art/buttons/playClicked.png" id="9_noodl"]
 [ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="10_ammnk"]
+[ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
 
 [sub_resource type="Gradient" id="Gradient_3oxqj"]
 offsets = PackedFloat32Array(0, 0.486486, 0.494208, 1)
@@ -63,6 +64,7 @@ sky = SubResource("Sky_dluij")
 
 [node name="grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(201.145, 0, 0, 0, 1, 0, 0, 0, 173.331, 0, 0, 0)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_2nlr5")
 mesh = SubResource("PlaneMesh_fov30")
 
@@ -73,6 +75,7 @@ shape = SubResource("ConcavePolygonShape3D_qovck")
 
 [node name="road" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.817499, 0, -32.9175, 0, 1.12847, 0, 0.300473, 0, -89.5588, -26.278, 0.00999999, -68.213)
+visible = false
 material_override = SubResource("StandardMaterial3D_wwetl")
 mesh = SubResource("PlaneMesh_cfmhg")
 skeleton = NodePath("../grass")
@@ -80,6 +83,8 @@ skeleton = NodePath("../grass")
 [node name="Racecar" parent="." instance=ExtResource("1_03ipr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("2_okwp7")
+MAX_STEER = 1.5
+ENGINE_POWER = 400
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Racecar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590005, 0.972212, 1.09557)
@@ -145,6 +150,8 @@ focus_mode = 0
 texture_normal = ExtResource("8_h38bi")
 texture_pressed = ExtResource("9_noodl")
 texture_hover = ExtResource("10_ammnk")
+
+[node name="Environment" parent="." instance=ExtResource("11_w4mv8")]
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
 [connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]

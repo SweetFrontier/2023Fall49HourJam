@@ -1,8 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://h2ebsepmvony"]
+[gd_scene load_steps=9 format=3 uid="uid://h2ebsepmvony"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://cgm5lroquafo1" path="res://Art/Terrain/new_terrain_3d_storage.res" id="1_gejk0"]
+[ext_resource type="Texture2D" path="res://Art/Terrain/ground037_alb_ht.dds" id="2_kj5dk"]
+[ext_resource type="Texture2D" path="res://Art/Terrain/ground037_nrm_rgh.dds" id="3_jore1"]
+[ext_resource type="Texture2D" path="res://Art/Terrain/rock028_alb_ht.dds" id="4_3mibl"]
+[ext_resource type="Texture2D" path="res://Art/Terrain/rock028_nrm_rgh.dds" id="5_najss"]
+
+[sub_resource type="Terrain3DTexture" id="Terrain3DTexture_h0o5d"]
+name = "Grass"
+albedo_texture = ExtResource("2_kj5dk")
+normal_texture = ExtResource("3_jore1")
+
+[sub_resource type="Terrain3DTexture" id="Terrain3DTexture_xp428"]
+texture_id = 1
+albedo_texture = ExtResource("4_3mibl")
+normal_texture = ExtResource("5_najss")
 
 [sub_resource type="Terrain3DTextureList" id="Terrain3DTextureList_g1ggj"]
+textures = Array[Terrain3DTexture]([SubResource("Terrain3DTexture_h0o5d"), SubResource("Terrain3DTexture_xp428")])
 
 [node name="Environment" type="Node3D"]
 
