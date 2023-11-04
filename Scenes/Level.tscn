@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpcwsp8fllas3"]
+[gd_scene load_steps=26 format=3 uid="uid://bpcwsp8fllas3"]
 
 [ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_03ipr"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_okwp7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bbm3kqjuk47qc" path="res://Art/buttons/play.png" id="8_h38bi"]
 [ext_resource type="Texture2D" uid="uid://u4gplrg663yv" path="res://Art/buttons/playClicked.png" id="9_noodl"]
 [ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="10_ammnk"]
+[ext_resource type="PackedScene" uid="uid://d1ymqb0oqbi3g" path="res://Scenes/Communication.tscn" id="11_7wyq8"]
 [ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
 
 [sub_resource type="Gradient" id="Gradient_3oxqj"]
@@ -99,10 +100,10 @@ fov = 69.9
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseButton" type="TextureButton" parent="GUI"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 84.0
-offset_bottom = 84.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 76.0
 focus_mode = 0
 texture_normal = ExtResource("4_bg4jk")
 texture_pressed = ExtResource("5_mk74g")
@@ -110,6 +111,7 @@ texture_hover = ExtResource("6_fr2uf")
 
 [node name="PauseMenu" type="Control" parent="GUI"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,14 +144,21 @@ text = "Paused"
 
 [node name="PlayButton" type="TextureButton" parent="GUI/PauseMenu"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 84.0
-offset_bottom = 84.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 76.0
 focus_mode = 0
 texture_normal = ExtResource("8_h38bi")
 texture_pressed = ExtResource("9_noodl")
 texture_hover = ExtResource("10_ammnk")
+
+[node name="Communication" parent="GUI" instance=ExtResource("11_7wyq8")]
+visible = false
+offset_left = 82.0
+offset_top = 5.0
+offset_right = 1145.0
+offset_bottom = 150.0
 
 [node name="Environment" parent="." instance=ExtResource("11_w4mv8")]
 
