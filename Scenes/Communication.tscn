@@ -32,7 +32,6 @@ offset_top = 46.0
 offset_right = 912.0
 offset_bottom = 625.0
 theme_override_font_sizes/normal_font_size = 24
-text_direction = 2
 
 [node name="Timer" type="Timer" parent="."]
 
