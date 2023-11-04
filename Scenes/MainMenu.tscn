@@ -1,4 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://7yulnf22mqsv"]
+[gd_scene load_steps=17 format=3 uid="uid://7yulnf22mqsv"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_coylk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
 sky_top_color = Color(0.184314, 0.729412, 1, 1)
@@ -12,6 +14,42 @@ sky_material = SubResource("ProceduralSkyMaterial_ijkcj")
 [sub_resource type="Environment" id="Environment_h3g38"]
 background_mode = 2
 sky = SubResource("Sky_dluij")
+
+[sub_resource type="Animation" id="Animation_pgp45"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.154319, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.598733, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.988276, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_y8d7q"]
 resource_name = "cameraFloat"
@@ -47,42 +85,6 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(3),
-"points": PackedFloat32Array(0.988276, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_pgp45"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.154319, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.598733, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.988276, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
@@ -126,15 +128,14 @@ albedo_texture = SubResource("GradientTexture1D_dmglq")
 [sub_resource type="PlaneMesh" id="PlaneMesh_flddr"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_coylk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.727773, -0.371845, 0.576262, 0, 0.840254, 0.542192, -0.685818, 0.394593, -0.611514, 0, 1.85687, 3.01072)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h3g38")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.929674, -0.0530577, 0.364543, 0, 0.989574, 0.144028, -0.368384, -0.133899, 0.919981, 0.154319, 0.598733, 0.988276)
+environment = SubResource("Environment_h3g38")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 autoplay = "cameraFloat"
@@ -142,7 +143,7 @@ libraries = {
 "": SubResource("AnimationLibrary_nkgc4")
 }
 
-[node name="gras" type="MeshInstance3D" parent="."]
+[node name="grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.93004, 0, 0, 0, 1, 0, 0, 0, 10.1059, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_ta30e")
 mesh = SubResource("PlaneMesh_jp3ir")
@@ -151,7 +152,7 @@ mesh = SubResource("PlaneMesh_jp3ir")
 transform = Transform3D(-0.817499, 0, -32.9175, 0, 1.12847, 0, 0.300473, 0, -89.5588, -26.278, 0.01, -68.213)
 material_override = SubResource("StandardMaterial3D_tow0f")
 mesh = SubResource("PlaneMesh_flddr")
-skeleton = NodePath("../gras")
+skeleton = NodePath("../grass")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -182,3 +183,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "3 2 1 Therapy???"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_start_button_pressed"]
