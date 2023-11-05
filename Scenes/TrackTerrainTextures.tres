@@ -1,4 +1,4 @@
-[gd_resource type="Terrain3DTextureList" load_steps=10 format=3 uid="uid://bog6h20bkuvhl"]
+[gd_resource type="Terrain3DTextureList" load_steps=13 format=3 uid="uid://bog6h20bkuvhl"]
 
 [ext_resource type="Texture2D" path="res://Art/Terrain/grass.DDS" id="1_kpfld"]
 [ext_resource type="Texture2D" path="res://Art/Terrain/AsphaltTextureNormalMap.DDS" id="1_ymvq1"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" path="res://Art/Terrain/grassNormal.DDS" id="2_mnbyh"]
 [ext_resource type="Texture2D" path="res://Art/Terrain/SnowTexture.DDS" id="5_xk12h"]
 [ext_resource type="Texture2D" path="res://Art/Terrain/SnowTextureNormalMap.DDS" id="6_6jsqw"]
+[ext_resource type="Texture2D" path="res://Art/Terrain/CheckeredTexture.DDS" id="7_duso5"]
+[ext_resource type="Texture2D" path="res://Art/Terrain/CheckeredNormal.DDS" id="8_0x1l5"]
 
 [sub_resource type="Terrain3DTexture" id="Terrain3DTexture_h0o5d"]
 name = "Grass"
@@ -24,5 +26,10 @@ texture_id = 2
 albedo_texture = ExtResource("5_xk12h")
 normal_texture = ExtResource("6_6jsqw")
 
+[sub_resource type="Terrain3DTexture" id="Terrain3DTexture_mq6r6"]
+texture_id = 3
+albedo_texture = ExtResource("7_duso5")
+normal_texture = ExtResource("8_0x1l5")
+
 [resource]
-textures = Array[Terrain3DTexture]([SubResource("Terrain3DTexture_h0o5d"), SubResource("Terrain3DTexture_xp428"), SubResource("Terrain3DTexture_hgj7d")])
+textures = Array[Terrain3DTexture]([SubResource("Terrain3DTexture_h0o5d"), SubResource("Terrain3DTexture_xp428"), SubResource("Terrain3DTexture_hgj7d"), SubResource("Terrain3DTexture_mq6r6")])
