@@ -39,7 +39,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Rado:volume_db")
+tracks/1/path = NodePath("Radio:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -51,7 +51,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Rado:playing")
+tracks/2/path = NodePath("Radio:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -91,7 +91,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Rado:volume_db")
+tracks/2/path = NodePath("Radio:volume_db")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -113,7 +113,7 @@ collision_layer = 128
 collision_mask = 128
 script = ExtResource("1_f0opp")
 animationPlayer = NodePath("AnimationPlayer")
-radio = NodePath("Rado")
+radio = NodePath("Radio")
 altRadio = NodePath("AlternatingRadio")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -124,7 +124,7 @@ libraries = {
 "": SubResource("AnimationLibrary_hekpm")
 }
 
-[node name="Rado" type="AudioStreamPlayer3D" parent="."]
+[node name="Radio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_hcakq")
 attenuation_model = 3
 autoplay = true
