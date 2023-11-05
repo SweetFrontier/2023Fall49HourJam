@@ -1,6 +1,7 @@
-extends AudioStreamPlayer3D
+extends StaticBody3D
 
 @export var animationPlayer : AnimationPlayer
+@export var radio : AudioStreamPlayer3D
 @export var altRadio : AudioStreamPlayer3D
 var currentlyAlternating : bool = false
 
@@ -15,13 +16,13 @@ func _process(delta):
 
 func _change_music(music:String):
 	if (currentlyAlternating):
-		volume_db = -80
-		stream = load("res://Audio/Music/"+music+".mp3")
-		play(altRadio.get_playback_position())
+		radio.volume_db = -80
+		radio.stream = load("res://Audio/Music/"+music+".mp3")
+		radio.play(altRadio.get_playback_position())
 		animationPlayer.play("ToRadio")
 	else:
 		altRadio.volume_db = -80
 		altRadio.stream = load("res://Audio/Music/"+music+".mp3")
-		altRadio.play(get_playback_position())
+		altRadio.play(radio.get_playback_position())
 		animationPlayer.play("ToAlt")
 	currentlyAlternating = !currentlyAlternating

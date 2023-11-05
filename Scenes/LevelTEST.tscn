@@ -1,0 +1,141 @@
+[gd_scene load_steps=22 format=3 uid="uid://d1p5ymyv3t336"]
+
+[ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_rq0qg"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_yad1x"]
+[ext_resource type="AudioStream" uid="uid://bu4lkvtyrho5s" path="res://Audio/Music/RaceOnceMusic.mp3" id="3_0qrmi"]
+[ext_resource type="PackedScene" uid="uid://cj2ms6c3q7ql2" path="res://Scenes/Radio.tscn" id="3_8d1o3"]
+[ext_resource type="Texture2D" uid="uid://b66cmhidn4q12" path="res://Art/buttons/pause.png" id="4_yjh7c"]
+[ext_resource type="Texture2D" uid="uid://cxbq4nw0quapt" path="res://Art/buttons/pauseClicked.png" id="5_u17ry"]
+[ext_resource type="Texture2D" uid="uid://cvi41tp7ncl77" path="res://Art/buttons/pauseHover.png" id="6_u1xov"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="7_6kf4a"]
+[ext_resource type="Texture2D" uid="uid://bbm3kqjuk47qc" path="res://Art/buttons/play.png" id="8_0bw2l"]
+[ext_resource type="Texture2D" uid="uid://u4gplrg663yv" path="res://Art/buttons/playClicked.png" id="9_taw3n"]
+[ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="10_ko7b7"]
+[ext_resource type="PackedScene" uid="uid://d1ymqb0oqbi3g" path="res://Scenes/Communication.tscn" id="11_n2cyu"]
+[ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="12_oh3m0"]
+[ext_resource type="PackedScene" path="res://Scenes/DialogueTrigger.tscn" id="13_tajvn"]
+[ext_resource type="PackedScene" uid="uid://bp8je17bf03ki" path="res://Art/3dModels/Tunnel/tunnelEntrance.glb" id="14_0wiyo"]
+[ext_resource type="PackedScene" uid="uid://dnvy1ow42flmq" path="res://Art/3dModels/Tunnel/tunnel_entrance.tscn" id="15_pnrqd"]
+[ext_resource type="PackedScene" uid="uid://cusqhvcbhd2lw" path="res://Art/3dModels/Tunnel/tunnelStraight.glb" id="16_3chh6"]
+[ext_resource type="PackedScene" uid="uid://seqfqhnwp3s4" path="res://Scenes/MusicShiftTrigger.tscn" id="18_glbun"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
+sky_top_color = Color(0.184314, 0.729412, 1, 1)
+sky_horizon_color = Color(0, 0.419608, 0.462745, 1)
+ground_bottom_color = Color(0.176471, 0.541176, 0.156863, 1)
+ground_horizon_color = Color(0.196078, 0.470588, 0.4, 1)
+
+[sub_resource type="Sky" id="Sky_dluij"]
+sky_material = SubResource("ProceduralSkyMaterial_ijkcj")
+
+[sub_resource type="Environment" id="Environment_rawl0"]
+background_mode = 2
+sky = SubResource("Sky_dluij")
+
+[node name="Level" type="Node3D"]
+
+[node name="Racecar" parent="." instance=ExtResource("1_rq0qg")]
+transform = Transform3D(0.231373, -0.00642166, 0.972844, 0.152609, 0.987838, -0.0297747, -0.960821, 0.155354, 0.22954, -4.75653, -45.2238, -635.959)
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("2_yad1x")
+MAX_STEER = 1.5
+ENGINE_POWER = 400
+metadata/_edit_group_ = true
+
+[node name="Radio" parent="Racecar" instance=ExtResource("3_8d1o3")]
+transform = Transform3D(1, -4.17233e-07, 0, 2.08616e-07, 1, 0, -3.12924e-07, 3.72529e-09, 1, -0.758789, 1.89297, 2.28122)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Racecar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590005, 0.972212, 1.09557)
+stream = ExtResource("3_0qrmi")
+autoplay = true
+
+[node name="Camera3D" type="Camera3D" parent="Racecar"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.75, -1)
+environment = SubResource("Environment_rawl0")
+fov = 69.9
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PauseButton" type="TextureButton" parent="GUI"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 76.0
+focus_mode = 0
+texture_normal = ExtResource("4_yjh7c")
+texture_pressed = ExtResource("5_u17ry")
+texture_hover = ExtResource("6_u1xov")
+
+[node name="PauseMenu" type="Control" parent="GUI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_6kf4a")
+
+[node name="BackgroundColor" type="ColorRect" parent="GUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.768627)
+
+[node name="PauseLabel" type="Label" parent="GUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 50.0
+offset_right = 88.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+
+[node name="PlayButton" type="TextureButton" parent="GUI/PauseMenu"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 76.0
+focus_mode = 0
+texture_normal = ExtResource("8_0bw2l")
+texture_pressed = ExtResource("9_taw3n")
+texture_hover = ExtResource("10_ko7b7")
+
+[node name="Communication" parent="GUI" instance=ExtResource("11_n2cyu")]
+visible = false
+offset_left = 82.0
+offset_top = 5.0
+offset_right = 1145.0
+offset_bottom = 150.0
+
+[node name="Environment" parent="." instance=ExtResource("12_oh3m0")]
+
+[node name="DialogueTrigger" parent="." instance=ExtResource("13_tajvn")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 22.6457, -46.094, -626.55)
+show_dialogue_until = 1
+
+[node name="tunnelEntrance" parent="." instance=ExtResource("14_0wiyo")]
+transform = Transform3D(-0.156969, 0, -0.987604, 0, 1, 0, 0.987604, 0, -0.156969, 38.7351, -49.6969, -629.105)
+
+[node name="tunnelEntrance2" parent="." instance=ExtResource("15_pnrqd")]
+transform = Transform3D(-0.0751353, 0, -0.997173, 0, 1, 0, 0.997173, 0, -0.0751353, 39.4787, -49.1027, -604.529)
+
+[node name="tunnelStraight" parent="." instance=ExtResource("16_3chh6")]
+transform = Transform3D(-0.172771, 0, -5.79173, 0, 1, 0, 0.984962, 0, -1.01592, 130.486, -49.6421, -613.378)
+
+[node name="MusicShiftTrigger" parent="." instance=ExtResource("18_glbun")]
+transform = Transform3D(9.46943, 0, 0, 0, 10.1147, 0, 0, 0, 15.7662, 10.8293, -42.7847, -630.237)
+
+[connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
+[connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
