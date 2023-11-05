@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://h2ebsepmvony"]
+[gd_scene load_steps=16 format=3 uid="uid://h2ebsepmvony"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://cx6d743pw070h" path="res://Art/Terrain/SpecialTrack.res" id="1_oqtri"]
 [ext_resource type="Terrain3DTextureList" uid="uid://bog6h20bkuvhl" path="res://Scenes/TrackTerrainTextures.tres" id="2_sl5fs"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://by1qq43n1c0x7" path="res://Art/3dModels/Snowman/snowmanHead.glb" id="9_rr2yf"]
 [ext_resource type="PackedScene" uid="uid://ce7ivdwahvjh5" path="res://Art/3dModels/Snowman/coolSnowman.glb" id="10_4dhov"]
 [ext_resource type="PackedScene" uid="uid://bi6rf7w3pdllj" path="res://Art/3dModels/Racecar.glb" id="10_j2xus"]
+[ext_resource type="PackedScene" uid="uid://dnvy1ow42flmq" path="res://Scenes/TunnelParts/tunnel_entrance.tscn" id="12_i6l03"]
+[ext_resource type="PackedScene" uid="uid://dhgxy7b7icwrt" path="res://Scenes/TunnelParts/tunnel_straight.tscn" id="13_3q2oa"]
+[ext_resource type="PackedScene" uid="uid://ld4423uywduh" path="res://Scenes/TunnelParts/tunnel_right.tscn" id="14_n7iya"]
+[ext_resource type="PackedScene" uid="uid://btb8h5qbsvdvx" path="res://Scenes/TunnelParts/tunnel_left.tscn" id="15_1sha2"]
 
 [node name="Environment" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87578, 12.9771, 87.1934)
@@ -469,14 +473,114 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2904.47, -49.6056, -480.152)
 [node name="TyreStack6" parent="Self Doubt/TireStacks" instance=ExtResource("5_nvmbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2903.4, -49.4928, -476.107)
 
-[node name="Fake Faces" type="Node" parent="."]
-
-[node name="Stands" type="Node" parent="Fake Faces"]
-
-[node name="Barriers" type="Node" parent="Fake Faces"]
-
-[node name="TireStacks" type="Node" parent="Fake Faces"]
-
 [node name="Fear of Unknown" type="Node" parent="."]
 
 [node name="Tunnel" type="Node" parent="Fear of Unknown"]
+
+[node name="tunnelEntrance" parent="Fear of Unknown/Tunnel" instance=ExtResource("12_i6l03")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -1050.67, -49.95, -383.628)
+
+[node name="tunnelStraight" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -1011.98, -49.95, -450.825)
+
+[node name="tunnelStraight2" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -973.291, -49.95, -518.031)
+
+[node name="tunnelStraight3" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -934.615, -49.95, -585.21)
+
+[node name="tunnelStraight4" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -895.923, -49.95, -652.416)
+
+[node name="tunnelStraight5" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -857.268, -49.95, -719.558)
+
+[node name="tunnelStraight6" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -818.575, -49.95, -786.765)
+
+[node name="tunnelStraight7" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -779.899, -49.95, -853.943)
+
+[node name="tunnelStraight8" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -741.207, -49.95, -921.15)
+
+[node name="tunnelStraight9" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -702.776, -49.95, -987.903)
+
+[node name="tunnelStraight10" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -664.084, -49.95, -1055.11)
+
+[node name="tunnelStraight11" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -625.408, -49.95, -1122.29)
+
+[node name="tunnelStraight12" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -586.715, -49.95, -1189.49)
+
+[node name="tunnelStraight13" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -548.06, -49.95, -1256.64)
+
+[node name="tunnelStraight14" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -509.368, -49.95, -1323.84)
+
+[node name="tunnelStraight15" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -470.692, -49.95, -1391.02)
+
+[node name="tunnelStraight16" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -431.999, -49.95, -1458.23)
+
+[node name="tunnelRight" parent="Fear of Unknown/Tunnel" instance=ExtResource("14_n7iya")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -393.466, -49.95, -1525.15)
+
+[node name="tunnelLeft" parent="Fear of Unknown/Tunnel" instance=ExtResource("15_1sha2")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -299.198, -49.95, -1475.27)
+
+[node name="tunnelStraight18" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -878.094, -49.95, -470.138)
+
+[node name="tunnelStraight19" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -839.418, -49.95, -537.316)
+
+[node name="tunnelStraight20" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -800.726, -49.95, -604.523)
+
+[node name="tunnelStraight21" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -762.071, -49.95, -671.665)
+
+[node name="tunnelStraight22" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -723.378, -49.95, -738.872)
+
+[node name="tunnelStraight23" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -684.702, -49.95, -806.05)
+
+[node name="tunnelStraight24" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -646.01, -49.95, -873.256)
+
+[node name="tunnelStraight25" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -607.579, -49.95, -940.009)
+
+[node name="tunnelStraight26" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -568.887, -49.95, -1007.22)
+
+[node name="tunnelStraight27" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -530.211, -49.95, -1074.39)
+
+[node name="tunnelStraight28" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -491.518, -49.95, -1141.6)
+
+[node name="tunnelStraight29" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -452.863, -49.95, -1208.74)
+
+[node name="tunnelStraight30" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -414.171, -49.95, -1275.95)
+
+[node name="tunnelStraight31" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -375.495, -49.95, -1343.13)
+
+[node name="tunnelStraight32" parent="Fear of Unknown/Tunnel" instance=ExtResource("13_3q2oa")]
+transform = Transform3D(1.73327, 0, -0.997883, 0, 2, 0, 0.997883, 0, 1.73327, -336.802, -49.95, -1410.33)
+
+[node name="tunnelLeft2" parent="Fear of Unknown/Tunnel" instance=ExtResource("15_1sha2")]
+transform = Transform3D(-1.73327, 0, 0.997883, 0, 2, 0, -0.997883, 0, -1.73327, -900.44, -49.95, -431.485)
+
+[node name="tunnelEntrance2" parent="Fear of Unknown/Tunnel" instance=ExtResource("12_i6l03")]
+transform = Transform3D(0.997883, 0, 1.73327, 0, 2, 0, -1.73327, 0, 0.997883, -834.158, -49.95, -334.053)
