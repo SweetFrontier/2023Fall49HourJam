@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	engine_force = Input.get_axis("back", "forward") * ENGINE_POWER
 	quaternion.z = lerp(quaternion.z, 0.0, delta * 5)
 	quaternion.x = lerp(quaternion.x, 0.0, delta * 5)
-	print(linear_velocity.length())
 	if (linear_velocity.length() > 40):
 		engine_force = -100
 
