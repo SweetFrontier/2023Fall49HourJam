@@ -98,6 +98,7 @@ transform = Transform3D(0.371368, 0, 0.928486, 0, 1, 0, -0.928486, 0, 0.371368, 
 mass = 20.0
 max_contacts_reported = 1
 contact_monitor = true
+freeze = true
 MAX_STEER = 1.5
 MAX_SPEED = 400.0
 metadata/_edit_group_ = true

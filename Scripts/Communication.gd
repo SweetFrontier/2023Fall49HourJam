@@ -34,12 +34,15 @@ func handleDialog() -> void:
 			
 			$Timer.start()
 			await $Timer.timeout
-			
-		await $AudioStreamPlayer.finished
+		
+		if ($AudioStreamPlayer.playing):
+			await $AudioStreamPlayer.finished
 		await get_tree().create_timer(0.5).timeout
 		$".".visible = false
-		if (dialogue_index == 71):
+		if (dialogue_index == 70):
 			get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
+		elif (dialogue_index == 6):
+			$"../../Racecar".freeze = false
 
 func update_dialogue(index: int = target_index + 1) -> void:
 	target_index = index
@@ -73,7 +76,7 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 				,{"Name":"Player", "Text": "You’re just telling me what I want to hear"}
 				,{"Name":"Mentor", "Text": "Maybe"}
 				,{"Name":"Mentor", "Text": "But why can’t you listen to it"}
-				,{"Name":"Player", "Text": "..."}
+				,{"Name":"Player", "Text": "..."} #24
 				,{"Name":"Mentor", "Text": "Are you afraid of what you want-"}
 				,{"Name":"Player", "Text": "Okay, yeah, sure..just let me focus"}
 				,{"Name":"Mentor", "Text": "Sure, kid.."}
@@ -98,12 +101,12 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 				,{"Name":"Mentor", "Text": "Left"}
 				,{"Name":"Mentor", "Text": "Left"}
 				,{"Name":"Mentor", "Text": "Left"}
-				,{"Name":"Mentor", "Text": "Right"}
-				,{"Name":"Mentor", "Text": "Right"}
+				,{"Name":"Mentor", "Text": "Right"} 
+				,{"Name":"Mentor", "Text": "Right"} #47
 				
 				,{"Name":"Player", "Text": "Not a single one of your instructions was right!"}
 				,{"Name":"Mentor", "Text": "But you still did it, right?"}
-				,{"Name":"Player", "Text": "...hm"}
+				,{"Name":"Player", "Text": "...hm"} #50
 				#right before the tunnel
 				,{"Name":"Player", "Text": "Okay, almost at the end"}
 				,{"Name":"Player", "Text": "Yeah, just a bit more"}
@@ -111,7 +114,8 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 				,{"Name":"Mentor", "Text": "You've got this, kid"}
 				,{"Name":"Player", "Text": "Huh?"}
 				,{"Name":"Mentor", "Text": "The tunnel is coming up won't be able to communicate"}
-				,{"Name":"Player", "Text": "What?! Wait-"}
+				,{"Name":"Player", "Text": "What?! Wait-"} #57
+				
 				,{"Name":"Player", "Text": "I can’t do this alone!"}
 				,{"Name":"Player", "Text": "I can't"}
 				,{"Name":"Player", "Text": "I..."}
@@ -157,6 +161,7 @@ var dialogue_audio = [
 				"25",
 				"26",
 				"27",
+				"27.5",
 				"28",
 				
 				"29",
@@ -168,6 +173,7 @@ var dialogue_audio = [
 				"34",
 				"35",
 				"36",
+				
 				"37",
 				"38",
 				"39",
@@ -181,25 +187,25 @@ var dialogue_audio = [
 				"47",
 				"48",
 				"49",
-				"playerVoiceTest",
+				"50",
 				
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest",
-				"playerVoiceTest"]
+				"51",
+				"52",
+				"53",
+				"54",
+				"55",
+				"56",
+				"57",
+				"58",
+				"59",
+				"59",
+				"60",
+				"61",
+				"62",
+				"63",
+				"64",
+				"65",
+				"66",
+				"67",
+				"68",
+				"69"]
