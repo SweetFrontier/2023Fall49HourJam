@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h2ebsepmvony"]
+[gd_scene load_steps=12 format=3 uid="uid://h2ebsepmvony"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://cx6d743pw070h" path="res://Art/Terrain/SpecialTrack.res" id="1_oqtri"]
 [ext_resource type="Terrain3DTextureList" uid="uid://bog6h20bkuvhl" path="res://Scenes/TrackTerrainTextures.tres" id="2_sl5fs"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cnsg40b4ectno" path="res://Art/3dModels/Snowman/snowman.glb" id="7_xxp41"]
 [ext_resource type="PackedScene" uid="uid://xrgwbaseorit" path="res://Art/3dModels/Snowman/snowmanBody.glb" id="8_dgfa5"]
 [ext_resource type="PackedScene" uid="uid://by1qq43n1c0x7" path="res://Art/3dModels/Snowman/snowmanHead.glb" id="9_rr2yf"]
+[ext_resource type="PackedScene" uid="uid://ce7ivdwahvjh5" path="res://Art/3dModels/Snowman/coolSnowman.glb" id="10_4dhov"]
 [ext_resource type="PackedScene" uid="uid://bi6rf7w3pdllj" path="res://Art/3dModels/Racecar.glb" id="10_j2xus"]
 
 [node name="Environment" type="Node3D"]
@@ -226,6 +227,9 @@ transform = Transform3D(0.741227, -0.427137, -0.517819, 0.350155, 0.904187, -0.2
 
 [node name="snowmanHead" parent="Past Experiences/Snowmen" instance=ExtResource("9_rr2yf")]
 transform = Transform3D(0.725383, -0.302364, -0.618381, 0.384746, 0.923022, 0, 0.570779, -0.23792, 0.785878, -1036.75, -42.1176, 684.648)
+
+[node name="coolSnowman" parent="Past Experiences/Snowmen" instance=ExtResource("10_4dhov")]
+transform = Transform3D(-0.97866, 0, 0.205487, 0, 1, 0, -0.205487, 0, -0.97866, -715.969, -49.2543, 490.305)
 
 [node name="Cars" type="Node" parent="Past Experiences"]
 
