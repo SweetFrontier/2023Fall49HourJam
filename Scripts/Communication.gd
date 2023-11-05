@@ -46,7 +46,8 @@ func update_dialogue(index: int = target_index + 1) -> void:
 
 #Example line for easy copy pasting
 #			 ,{"Name":"", "Text": ""}
-var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming up, the stress may have gone to your head, so you gotta relax yourself for this one. Don’t think about this as your final exam. It’s just one, single lap. You’ve done plenty of these before."}
+var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming up, the stress may have gone to your head, so you gotta relax yourself for this one."}
+			   ,{"Name":"Mentor", "Text":"Don’t think about this as your final exam. It’s just one, single lap. You’ve done plenty of these before."}
 			   ,{"Name":"Player", "Text": "[i]I’ve been training for ages now, and now it’s all coming to an end.[/i]"}
 			   ,{"Name":"Player", "Text": "[i]All I have to do is drive one last lap.[/i]"}
 			   ,{"Name":"Player", "Text": "[i]My hands are shaking. I can’t afford to be this nervous.[/i]"}
@@ -123,6 +124,7 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 			]
 			
 var dialogue_audio = ["playerVoiceTest",
+				"playerVoiceTest",
 				"playerVoiceTest",
 				"playerVoiceTest",
 				"playerVoiceTest",
