@@ -25,8 +25,8 @@ func handleDialog() -> void:
 		$Message.text = dialogue[dialogue_index]["Text"]
 
 		$Message.visible_characters = 0
-		#$AudioStreamPlayer.stream = load("res://Audio/Dialogue/" + dialogue_audio[dialogue_index] +".ogg")
-		#$AudioStreamPlayer.play()
+		$AudioStreamPlayer.stream = load("res://Audio/Dialogue/" + dialogue_audio[dialogue_index] +".ogg")
+		$AudioStreamPlayer.play()
 		
 		$Image.texture = player_image if $Name.text == "Player" else mentor_image
 		while $Message.visible_characters < len($Message.text):
@@ -35,7 +35,7 @@ func handleDialog() -> void:
 			$Timer.start()
 			await $Timer.timeout
 			
-		#await $AudioStreamPlayer.finished
+		await $AudioStreamPlayer.finished
 		await get_tree().create_timer(0.5).timeout
 		$".".visible = false
 
@@ -115,4 +115,70 @@ var dialogue = [{"Name":"Player", "Text":"[i]It’s a big day. Graduation is jus
 				,{"Name":"Mentor", "Text":"Congratulation kid you are now officially a professional"}
 			]
 			
-var dialogue_audio = ["playerVoiceTest","playerVoiceTest"]
+var dialogue_audio = ["playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest",
+				"playerVoiceTest"]
