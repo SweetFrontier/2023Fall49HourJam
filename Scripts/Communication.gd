@@ -25,8 +25,8 @@ func handleDialog() -> void:
 		$Message.text = dialogue[dialogue_index]["Text"]
 
 		$Message.visible_characters = 0
-		$AudioStreamPlayer.stream = load("res://Audio/Dialogue/" + dialogue_audio[dialogue_index] +".ogg")
-		$AudioStreamPlayer.play()
+		#$AudioStreamPlayer.stream = load("res://Audio/Dialogue/" + dialogue_audio[dialogue_index] +".ogg")
+		#$AudioStreamPlayer.play()
 		
 		$Image.texture = player_image if $Name.text == "Player" else mentor_image
 		while $Message.visible_characters < len($Message.text):
@@ -35,7 +35,7 @@ func handleDialog() -> void:
 			$Timer.start()
 			await $Timer.timeout
 			
-		await $AudioStreamPlayer.finished
+		#await $AudioStreamPlayer.finished
 		await get_tree().create_timer(0.5).timeout
 		$".".visible = false
 
@@ -46,14 +46,13 @@ func update_dialogue(index: int = target_index + 1) -> void:
 
 #Example line for easy copy pasting
 #			 ,{"Name":"", "Text": ""}
-var dialogue = [{"Name":"Player", "Text":"[i]It’s a big day. Graduation is just around the corner. [/i]"}
+var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming up, the stress may have gone to your head, so you gotta relax yourself for this one. Don’t think about this as your final exam. It’s just one, single lap. You’ve done plenty of these before."}
 			   ,{"Name":"Player", "Text": "[i]I’ve been training for ages now, and now it’s all coming to an end.[/i]"}
 			   ,{"Name":"Player", "Text": "[i]All I have to do is drive one last lap.[/i]"}
 			   ,{"Name":"Player", "Text": "[i]My hands are shaking. I can’t afford to be this nervous.[/i]"}
 			   ,{"Name":"Player", "Text": "It’s only one more lap."}
 			   ,{"Name":"Player", "Text": "Off I go."}
 			
-			   ,{"Name":"Player", "Text": "Why does it seem like the track is...                     ...longers"}
 			   ,{"Name":"Player", "Text": "Can I even... do this?"}
 			   ,{"Name":"Player", "Text": "No! I-I… I have to..."}
 			   ,{"Name":"Player", "Text": "Everyone is expecting me to do this"}
@@ -86,10 +85,19 @@ var dialogue = [{"Name":"Player", "Text":"[i]It’s a big day. Graduation is jus
 				,{"Name":"Mentor", "Text": "Alright, challenge area now, kid"}
 				,{"Name":"Player", "Text": "Huh, what? Since when?"}
 				,{"Name":"Mentor", "Text": "Since now"}
-				,{"Name":"Player", "Text": "[i]Don’t worry, just rely on my[/i]"}
+				,{"Name":"Mentor", "Text": "Left"}
+				,{"Name":"Mentor", "Text": "Left"}
+				,{"Name":"Mentor", "Text": "Left"}
+				,{"Name":"Mentor", "Text": "Right"}
+				,{"Name":"Mentor", "Text": "Left"}
+				,{"Name":"Mentor", "Text": "Right"}
+				,{"Name":"Mentor", "Text": "Left"}
+				,{"Name":"Mentor", "Text": "Left"}
+				,{"Name":"Mentor", "Text": "Left"}
+				,{"Name":"Mentor", "Text": "Right"}
+				,{"Name":"Mentor", "Text": "Right"}
 				,{"Name":"Player", "Text": "Not a single one of your instructions was right!"}
 				,{"Name":"Mentor", "Text": "Yeah, but you still did it, right?"}
-				,{"Name":"Mentor", "Text": "Did you really need me here, or did you want me to be here?"}
 				,{"Name":"Player", "Text": "...hm"}
 				#right before the tunnel
 				,{"Name":"Player", "Text": "Okay, almost at the end"}
@@ -97,9 +105,8 @@ var dialogue = [{"Name":"Player", "Text":"[i]It’s a big day. Graduation is jus
 				,{"Name":"Mentor", "Text": "Yeah..."}
 				,{"Name":"Mentor", "Text": "You've got this, kid"}
 				,{"Name":"Player", "Text": "Huh?"}
-				,{"Name":"Mentor", "Text": "I’m letting go now, kid"}
+				,{"Name":"Mentor", "Text": "The tunnel is coming up won't be able to communicate"}
 				,{"Name":"Player", "Text": "What?! Wait-"}
-				,{"Name":"Player", "Text": "[b]Wait! No! COme back[/b]"}
 				,{"Name":"Player", "Text": "I can’t do this alone!"}
 				,{"Name":"Player", "Text": "I can't"}
 				,{"Name":"Player", "Text": "I..."}
@@ -144,7 +151,6 @@ var dialogue_audio = ["playerVoiceTest",
 				"playerVoiceTest",
 				"playerVoiceTest",
 				"playerVoiceTest",
-				"playerVoiceTest",
 				
 				"playerVoiceTest",
 				"playerVoiceTest",
@@ -161,7 +167,6 @@ var dialogue_audio = ["playerVoiceTest",
 				"playerVoiceTest",
 				"playerVoiceTest",
 				
-				"playerVoiceTest",
 				"playerVoiceTest",
 				"playerVoiceTest",
 				"playerVoiceTest",
