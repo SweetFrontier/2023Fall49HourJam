@@ -294,9 +294,180 @@ transform = Transform3D(-0.597813, -0.0501812, -0.800063, 0.556931, 0.691848, -0
 
 [node name="Stands" type="Node" parent="Self Doubt"]
 
+[node name="Stands" parent="Self Doubt/Stands" instance=ExtResource("3_5tdpq")]
+transform = Transform3D(0.949978, 0, -0.312318, 0, 1, 0, 0.312318, 0, 0.949978, -1866.06, -48.3117, 55.2739)
+
 [node name="Barriers" type="Node" parent="Self Doubt"]
 
+[node name="Barrier" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.404168, 0, -0.914685, 0, 1, 0, 0.914685, 0, -0.404168, -1896.15, -47.9416, 68.2468)
+
+[node name="Barrier2" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.404168, 0, -0.914685, 0, 1, 0, 0.914685, 0, -0.404168, -1883.73, -48.5948, 73.1083)
+
+[node name="Barrier3" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.404168, 0, -0.914685, 0, 1, 0, 0.914685, 0, -0.404168, -1869.73, -48.5948, 78.5835)
+
+[node name="Barrier4" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.404168, 0, -0.914685, 0, 1, 0, 0.914685, 0, -0.404168, -1856.11, -48.5948, 84.7511)
+
+[node name="Barrier5" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.404168, 0, -0.914685, 0, 1, 0, 0.914685, 0, -0.404168, -1841.49, -46.7743, 89.0072)
+
+[node name="Barrier6" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2467.65, -47.1177, 297.118)
+
+[node name="Barrier7" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2479.91, -47.7709, 291.882)
+
+[node name="Barrier8" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2493.74, -47.7709, 285.986)
+
+[node name="Barrier9" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2507.17, -47.7709, 279.408)
+
+[node name="Barrier10" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2521.65, -45.9504, 274.711)
+
+[node name="Barrier11" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2892.47, -47.1177, 288.914)
+
+[node name="Barrier12" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2904.73, -47.7709, 283.679)
+
+[node name="Barrier13" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2918.56, -47.7709, 277.782)
+
+[node name="Barrier14" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2931.99, -47.7709, 271.205)
+
+[node name="Barrier15" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.431692, 0, 0.902021, 0, 1, 0, -0.902021, 0, 0.431692, -2946.47, -45.9504, 266.508)
+
+[node name="Barrier16" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.903537, 0, -0.428509, 0, 1, 0, 0.428509, 0, 0.903537, -3044.36, -47.1177, 129.712)
+
+[node name="Barrier17" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.903537, 0, -0.428509, 0, 1, 0, 0.428509, 0, 0.903537, -3039.17, -47.7709, 117.431)
+
+[node name="Barrier18" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.903537, 0, -0.428509, 0, 1, 0, 0.428509, 0, 0.903537, -3033.32, -47.7709, 103.579)
+
+[node name="Barrier19" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.903537, 0, -0.428509, 0, 1, 0, 0.428509, 0, 0.903537, -3026.79, -47.7709, 90.1286)
+
+[node name="Barrier20" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.903537, 0, -0.428509, 0, 1, 0, 0.428509, 0, 0.903537, -3022.15, -45.9504, 75.628)
+
+[node name="Barrier21" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.337868, 0, 0.941194, 0, 1, 0, -0.941194, 0, -0.337868, -2719.58, -47.1177, -33.2217)
+
+[node name="Barrier22" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.337868, 0, 0.941194, 0, 1, 0, -0.941194, 0, -0.337868, -2731.93, -47.7709, -28.1829)
+
+[node name="Barrier23" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.337868, 0, 0.941194, 0, 1, 0, -0.941194, 0, -0.337868, -2745.85, -47.7709, -22.4943)
+
+[node name="Barrier24" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.337868, 0, 0.941194, 0, 1, 0, -0.941194, 0, -0.337868, -2759.96, -47.7709, -17.5713)
+
+[node name="Barrier25" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.337868, 0, 0.941194, 0, 1, 0, -0.941194, 0, -0.337868, -2773.49, -48.064, -10.5747)
+
+[node name="Barrier26" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.109509, 0, -0.993986, 0, 1, 0, 0.993986, 0, -0.109509, -2529.85, -47.1177, -186.123)
+
+[node name="Barrier27" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.109509, 0, -0.993986, 0, 1, 0, 0.993986, 0, -0.109509, -2516.55, -47.7709, -185.232)
+
+[node name="Barrier28" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.109509, 0, -0.993986, 0, 1, 0, 0.993986, 0, -0.109509, -2501.54, -47.7709, -184.235)
+
+[node name="Barrier29" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.109509, 0, -0.993986, 0, 1, 0, 0.993986, 0, -0.109509, -2486.7, -47.7709, -182.462)
+
+[node name="Barrier30" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.109509, 0, -0.993986, 0, 1, 0, 0.993986, 0, -0.109509, -2471.48, -48.064, -182.813)
+
+[node name="Barrier31" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.977655, 0, -0.210216, 0, 1, 0, 0.210216, 0, -0.977655, -1997.28, -47.1763, -174.534)
+
+[node name="Barrier32" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.977655, 0, -0.210216, 0, 1, 0, 0.210216, 0, -0.977655, -1993.92, -47.8295, -161.63)
+
+[node name="Barrier33" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.977655, 0, -0.210216, 0, 1, 0, 0.210216, 0, -0.977655, -1990.12, -47.8295, -147.081)
+
+[node name="Barrier34" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.977655, 0, -0.210216, 0, 1, 0, 0.210216, 0, -0.977655, -1987.12, -47.8295, -132.435)
+
+[node name="Barrier35" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.977655, 0, -0.210216, 0, 1, 0, 0.210216, 0, -0.977655, -1981.97, -48.1227, -118.104)
+
+[node name="Barrier36" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.998062, 0, 0.0622332, 0, 1, 0, -0.0622332, 0, 0.998062, -3087.1, -46.6955, -115.767)
+
+[node name="Barrier37" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.998062, 0, 0.0622332, 0, 1, 0, -0.0622332, 0, 0.998062, -3088.5, -47.3488, -129.027)
+
+[node name="Barrier38" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.998062, 0, 0.0622332, 0, 1, 0, -0.0622332, 0, 0.998062, -3090.09, -47.3488, -143.979)
+
+[node name="Barrier39" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.998062, 0, 0.0622332, 0, 1, 0, -0.0622332, 0, 0.998062, -3090.88, -47.3488, -158.91)
+
+[node name="Barrier40" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.998062, 0, 0.0622332, 0, 1, 0, -0.0622332, 0, 0.998062, -3093.83, -47.6419, -173.848)
+
+[node name="Barrier41" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.483007, 0, -0.875616, 0, 1, 0, 0.875616, 0, -0.483007, -2367.6, -47.8161, -493.919)
+
+[node name="Barrier42" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.483007, 0, -0.875616, 0, 1, 0, 0.875616, 0, -0.483007, -2355.66, -48.4693, -487.985)
+
+[node name="Barrier43" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.483007, 0, -0.875616, 0, 1, 0, 0.875616, 0, -0.483007, -2342.19, -48.4693, -481.3)
+
+[node name="Barrier44" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.483007, 0, -0.875616, 0, 1, 0, 0.875616, 0, -0.483007, -2329.16, -48.4693, -473.959)
+
+[node name="Barrier45" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(-0.483007, 0, -0.875616, 0, 1, 0, 0.875616, 0, -0.483007, -2314.97, -48.7625, -468.434)
+
+[node name="Barrier46" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.363381, 0, 0.931641, 0, 1, 0, -0.931641, 0, 0.363381, -1739.95, -47.3691, -160.022)
+
+[node name="Barrier47" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.363381, 0, 0.931641, 0, 1, 0, -0.931641, 0, 0.363381, -1752.57, -48.0223, -164.331)
+
+[node name="Barrier48" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.363381, 0, 0.931641, 0, 1, 0, -0.931641, 0, 0.363381, -1766.8, -48.0223, -169.182)
+
+[node name="Barrier49" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.363381, 0, 0.931641, 0, 1, 0, -0.931641, 0, 0.363381, -1780.68, -48.0223, -174.742)
+
+[node name="Barrier50" parent="Self Doubt/Barriers" instance=ExtResource("4_a84ys")]
+transform = Transform3D(0.363381, 0, 0.931641, 0, 1, 0, -0.931641, 0, 0.363381, -1795.48, -48.3155, -178.349)
+
 [node name="TireStacks" type="Node" parent="Self Doubt"]
+
+[node name="TyreStack" parent="Self Doubt/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2908.98, -49.6946, -489.114)
+
+[node name="TyreStack2" parent="Self Doubt/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2907.91, -49.5818, -485.069)
+
+[node name="TyreStack3" parent="Self Doubt/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2910.7, -49.6946, -498.251)
+
+[node name="TyreStack4" parent="Self Doubt/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2909.63, -49.5818, -494.205)
+
+[node name="TyreStack5" parent="Self Doubt/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2904.47, -49.6056, -480.152)
+
+[node name="TyreStack6" parent="Self Doubt/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2903.4, -49.4928, -476.107)
 
 [node name="Fake Faces" type="Node" parent="."]
 
@@ -308,36 +479,4 @@ transform = Transform3D(-0.597813, -0.0501812, -0.800063, 0.556931, 0.691848, -0
 
 [node name="Fear of Unknown" type="Node" parent="."]
 
-[node name="Stands" type="Node" parent="Fear of Unknown"]
-
-[node name="Barriers" type="Node" parent="Fear of Unknown"]
-
-[node name="TireStacks" type="Node" parent="Fear of Unknown"]
-
-[node name="Quick References" type="Node" parent="."]
-
-[node name="8 long barrier" type="Node" parent="Quick References"]
-
-[node name="Barrier" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.55, 137.243, -1156.58)
-
-[node name="Barrier2" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.546, 137.243, -1168.04)
-
-[node name="Barrier3" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.55, 137.243, -1179.51)
-
-[node name="Barrier4" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.546, 137.243, -1190.98)
-
-[node name="Barrier5" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.55, 137.243, -1202.42)
-
-[node name="Barrier6" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.546, 137.243, -1213.88)
-
-[node name="Barrier7" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.55, 137.243, -1225.35)
-
-[node name="Barrier8" parent="Quick References/8 long barrier" instance=ExtResource("4_a84ys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.546, 137.243, -1236.82)
+[node name="Tunnel" type="Node" parent="Fear of Unknown"]
