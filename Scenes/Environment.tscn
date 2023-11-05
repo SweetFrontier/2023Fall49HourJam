@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://h2ebsepmvony"]
+[gd_scene load_steps=11 format=3 uid="uid://h2ebsepmvony"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://cx6d743pw070h" path="res://Art/Terrain/SpecialTrack.res" id="1_oqtri"]
 [ext_resource type="Terrain3DTextureList" uid="uid://bog6h20bkuvhl" path="res://Scenes/TrackTerrainTextures.tres" id="2_sl5fs"]
 [ext_resource type="PackedScene" uid="uid://drhb3nt6jj5em" path="res://Art/3dModels/Stands.glb" id="3_5tdpq"]
 [ext_resource type="PackedScene" uid="uid://bl1xic20t7hgt" path="res://Art/3dModels/Barrier.glb" id="4_a84ys"]
 [ext_resource type="PackedScene" uid="uid://b1mt85rx8p3ud" path="res://Art/3dModels/TyreStack.glb" id="5_nvmbu"]
+[ext_resource type="PackedScene" uid="uid://cbnjjjotxapeg" path="res://Art/3dModels/Barrier-Snow.glb" id="6_wdsq1"]
+[ext_resource type="PackedScene" uid="uid://cnsg40b4ectno" path="res://Art/3dModels/Snowman/snowman.glb" id="7_xxp41"]
+[ext_resource type="PackedScene" uid="uid://xrgwbaseorit" path="res://Art/3dModels/Snowman/snowmanBody.glb" id="8_dgfa5"]
+[ext_resource type="PackedScene" uid="uid://by1qq43n1c0x7" path="res://Art/3dModels/Snowman/snowmanHead.glb" id="9_rr2yf"]
+[ext_resource type="PackedScene" uid="uid://bi6rf7w3pdllj" path="res://Art/3dModels/Racecar.glb" id="10_j2xus"]
 
 [node name="Environment" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87578, 12.9771, 87.1934)
@@ -145,6 +150,12 @@ transform = Transform3D(-0.901289, 0, -0.433219, 0, 1, 0, 0.433219, 0, -0.901289
 
 [node name="Stands" type="Node" parent="Afraid to Disappoint"]
 
+[node name="Stands2" parent="Afraid to Disappoint/Stands" instance=ExtResource("3_5tdpq")]
+transform = Transform3D(-0.233395, 0, -0.972382, 0, 1, 0, 0.972382, 0, -0.233395, 610.818, -40.1814, -197.655)
+
+[node name="Stands3" parent="Afraid to Disappoint/Stands" instance=ExtResource("3_5tdpq")]
+transform = Transform3D(-0.0889813, 0, -0.996033, 0, 1, 0, 0.996033, 0, -0.0889813, 595.949, -40.5925, -113.362)
+
 [node name="Barriers" type="Node" parent="Afraid to Disappoint"]
 
 [node name="Barrier" parent="Afraid to Disappoint/Barriers" instance=ExtResource("4_a84ys")]
@@ -173,34 +184,107 @@ transform = Transform3D(-0.987072, 0, -0.160277, 0, 1, 0, 0.160277, 0, -0.987072
 
 [node name="TireStacks" type="Node" parent="Afraid to Disappoint"]
 
+[node name="TyreStack" parent="Afraid to Disappoint/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 624.718, -48.3245, -424.336)
+
+[node name="TyreStack2" parent="Afraid to Disappoint/TireStacks" instance=ExtResource("5_nvmbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 624.671, -48.1829, -422.341)
+
 [node name="Past Experiences" type="Node" parent="."]
 
 [node name="Stands" type="Node" parent="Past Experiences"]
 
-[node name="Stands2" parent="Past Experiences/Stands" instance=ExtResource("3_5tdpq")]
-transform = Transform3D(-0.233395, 0, -0.972382, 0, 1, 0, 0.972382, 0, -0.233395, 610.818, -40.1814, -197.655)
-
-[node name="Stands3" parent="Past Experiences/Stands" instance=ExtResource("3_5tdpq")]
-transform = Transform3D(-0.0889813, 0, -0.996033, 0, 1, 0, 0.996033, 0, -0.0889813, 595.949, -40.5925, -113.362)
-
 [node name="Barriers" type="Node" parent="Past Experiences"]
 
-[node name="Barrier" parent="Past Experiences/Barriers" instance=ExtResource("4_a84ys")]
-transform = Transform3D(0.703358, 0, -0.710836, 0, 1, 0, 0.710836, 0, 0.703358, -408.001, -47.3965, 264.253)
+[node name="Barrier-Snow" parent="Past Experiences/Barriers" instance=ExtResource("6_wdsq1")]
+transform = Transform3D(0.809663, 0, -0.586895, 0, 1, 0, 0.586895, 0, 0.809663, -409.704, -47.8594, 264.336)
 
-[node name="Barrier2" parent="Past Experiences/Barriers" instance=ExtResource("4_a84ys")]
-transform = Transform3D(0.50071, 0, -0.865615, 0, 1, 0, 0.865615, 0, 0.50071, -397.704, -47.3395, 255.87)
+[node name="Barrier-Snow2" parent="Past Experiences/Barriers" instance=ExtResource("6_wdsq1")]
+transform = Transform3D(0.543189, 0, -0.83961, 0, 1, 0, 0.83961, 0, 0.543189, -400.064, -47.1884, 255.329)
 
-[node name="Barrier3" parent="Past Experiences/Barriers" instance=ExtResource("4_a84ys")]
-transform = Transform3D(0.433345, 0, -0.901228, 0, 1, 0, 0.901228, 0, 0.433345, -383.822, -46.6542, 249.689)
+[node name="Barrier-Snow3" parent="Past Experiences/Barriers" instance=ExtResource("6_wdsq1")]
+transform = Transform3D(0.543189, 0, -0.83961, 0, 1, 0, 0.83961, 0, 0.543189, -389.677, -45.8395, 248.541)
 
 [node name="TireStacks" type="Node" parent="Past Experiences"]
 
-[node name="TyreStack" parent="Past Experiences/TireStacks" instance=ExtResource("5_nvmbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 624.718, -48.3245, -424.336)
+[node name="Snowmen" type="Node" parent="Past Experiences"]
 
-[node name="TyreStack2" parent="Past Experiences/TireStacks" instance=ExtResource("5_nvmbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 624.671, -48.1829, -422.341)
+[node name="snowman" parent="Past Experiences/Snowmen" instance=ExtResource("7_xxp41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -414.091, -50.3451, 263.392)
+
+[node name="snowman2" parent="Past Experiences/Snowmen" instance=ExtResource("7_xxp41")]
+transform = Transform3D(0.892286, 0.028972, -0.450541, 0.0107572, 0.996291, 0.085371, 0.451343, -0.0810219, 0.888665, -403.163, -47.6229, 254.163)
+
+[node name="snowman3" parent="Past Experiences/Snowmen" instance=ExtResource("7_xxp41")]
+transform = Transform3D(0.892286, 0.028972, -0.450541, -0.0746283, 0.993676, -0.0839014, 0.44526, 0.108487, 0.888805, -392.686, -46.4472, 247.395)
+
+[node name="snowman4" parent="Past Experiences/Snowmen" instance=ExtResource("7_xxp41")]
+transform = Transform3D(0.992385, 0.0822715, 0.0916686, -0.0746283, 0.993676, -0.0839014, -0.0979915, 0.0764214, 0.992249, -427.195, 0.189157, 274.484)
+
+[node name="snowmanBody" parent="Past Experiences/Snowmen" instance=ExtResource("8_dgfa5")]
+transform = Transform3D(0.741227, -0.427137, -0.517819, 0.350155, 0.904187, -0.244617, 0.57269, 0, 0.819772, -992.594, -50.2697, 677.254)
+
+[node name="snowmanHead" parent="Past Experiences/Snowmen" instance=ExtResource("9_rr2yf")]
+transform = Transform3D(0.725383, -0.302364, -0.618381, 0.384746, 0.923022, 0, 0.570779, -0.23792, 0.785878, -1036.75, -42.1176, 684.648)
+
+[node name="Cars" type="Node" parent="Past Experiences"]
+
+[node name="Racecar" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.362339, -0.565399, -0.740968, -0.248378, 0.824818, -0.507922, 0.898342, 0, -0.439296, -34.4313, -43.2325, 649.928)
+
+[node name="Racecar2" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.199577, -0.311769, -0.928961, -0.285246, 0.888491, -0.359469, 0.937445, 0.336725, 0.0883911, -339.88, -41.532, 675.647)
+
+[node name="Racecar3" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.199577, -0.311769, -0.928961, -0.285246, 0.888491, -0.359469, 0.937445, 0.336725, 0.0883911, -489.509, -43.8723, 653.185)
+
+[node name="Racecar4" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.199577, -0.311769, -0.928961, -0.285246, 0.888491, -0.359469, 0.937445, 0.336725, 0.0883911, -642.88, -43.8723, 695.757)
+
+[node name="Racecar5" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.126991, -0.533547, -0.836182, 0.843905, 0.384884, -0.373748, 0.521246, -0.753121, 0.401386, -637.519, -43.8723, 690.814)
+
+[node name="Racecar6" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.0608211, 0.340029, -0.938446, 0.843546, -0.485106, -0.23044, -0.533602, -0.805638, -0.257326, -647.53, -42.0824, 699.817)
+
+[node name="Racecar7" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.0386076, -0.966607, -0.253339, -0.0644946, 0.25541, -0.964679, 0.997171, -0.0209049, -0.0722016, -1005.8, -47.3191, 676.551)
+
+[node name="Racecar8" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.68787, -0.392052, -0.610844, -0.0200831, 0.851534, -0.523916, 0.725556, -0.348118, -0.593618, -1221.24, -43.4288, 661.765)
+
+[node name="Racecar9" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.68787, -0.392052, -0.610844, -0.0200831, 0.851534, -0.523916, 0.725556, -0.348118, -0.593618, -1287.78, -42.3682, 690.178)
+
+[node name="Racecar10" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.68787, -0.392052, -0.610844, -0.0200831, 0.851534, -0.523916, 0.725556, -0.348118, -0.593618, -1417.57, -42.3682, 674.422)
+
+[node name="Racecar11" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.19127, 0.335235, -0.922515, -0.188418, 0.909848, 0.369698, 0.963283, 0.244531, -0.110862, -1766.74, -33.4744, 687.828)
+
+[node name="Racecar12" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.389222, 0.414796, -0.822466, -0.188418, 0.909848, 0.369698, 0.901667, 0.0110732, 0.432288, -1773.29, -21.6852, 744.019)
+
+[node name="Racecar13" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.209997, -0.885096, -0.41534, 0.378017, 0.465278, -0.800387, 0.901667, 0.0110732, 0.432288, -1754.21, -43.0946, 727.279)
+
+[node name="Racecar14" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.209997, -0.885096, -0.41534, 0.378017, 0.465278, -0.800387, 0.901667, 0.0110732, 0.432288, -2018.68, -43.0946, 727.279)
+
+[node name="Racecar15" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.0251117, 0.999326, 0.0267804, -0.4317, -0.0350025, 0.901338, 0.901667, 0.0110732, 0.432288, -2018.68, -43.0946, 718.816)
+
+[node name="Racecar16" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.428956, 0.886992, -0.171005, -0.4317, -0.0350025, 0.901338, 0.793493, 0.460457, 0.397929, -2012.02, -43.0946, 726.323)
+
+[node name="Racecar17" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.399389, 0.0993621, -0.911381, 0.388191, 0.882265, 0.266303, 0.830539, -0.460149, 0.313796, -2014.99, -48.0947, 718.013)
+
+[node name="Racecar18" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(0.399389, 0.0993621, -0.911381, 0.388191, 0.882265, 0.266303, 0.830539, -0.460149, 0.313796, -2025.8, -48.0947, 713.526)
+
+[node name="Racecar19" parent="Past Experiences/Cars" instance=ExtResource("10_j2xus")]
+transform = Transform3D(-0.597813, -0.0501812, -0.800063, 0.556931, 0.691848, -0.459536, 0.576582, -0.720297, -0.385648, -2011.4, -47.7314, 728.539)
 
 [node name="Self Doubt" type="Node" parent="."]
 

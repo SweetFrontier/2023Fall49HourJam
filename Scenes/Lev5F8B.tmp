@@ -30,7 +30,7 @@ sky = SubResource("Sky_dluij")
 [node name="Level" type="Node3D"]
 
 [node name="Racecar" parent="." instance=ExtResource("1_03ipr")]
-transform = Transform3D(0.00382042, -0.030717, -0.999521, 0.152609, 0.987838, -0.0297747, 0.988279, -0.152422, 0.00846165, -4.75653, -45.2238, 663.757)
+transform = Transform3D(0.191494, 0, 0.981494, 0, 1, 0, -0.981494, 0, 0.191494, -4.75653, -47.5124, -632.37)
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("2_okwp7")
