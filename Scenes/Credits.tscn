@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://7yulnf22mqsv"]
+[gd_scene load_steps=24 format=3 uid="uid://pml0cladoa1c"]
 
-[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_coylk"]
-[ext_resource type="AudioStream" uid="uid://crlikl4pg4fey" path="res://Audio/Music/title.ogg" id="2_lo2g4"]
-[ext_resource type="AudioStream" uid="uid://c1lvhaw7su3uc" path="res://Audio/buttonPress.ogg" id="4_q2vcc"]
+[ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_tkmu4"]
+[ext_resource type="AudioStream" uid="uid://crlikl4pg4fey" path="res://Audio/Music/title.ogg" id="2_15oro"]
+[ext_resource type="AudioStream" uid="uid://c1lvhaw7su3uc" path="res://Audio/buttonPress.ogg" id="3_mdb8j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
 sky_top_color = Color(0.184314, 0.729412, 1, 1)
@@ -236,11 +236,8 @@ _data = {
 "fadeOut": SubResource("Animation_i0010")
 }
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("transitionPlayer", "musicSound", "buttonSound")]
-script = ExtResource("1_coylk")
-transitionPlayer = NodePath("CanvasLayer/Transition")
-musicSound = NodePath("musicSounds/musicFader")
-buttonSound = NodePath("buttonSound")
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_tkmu4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.727773, -0.371845, 0.576262, 0, 0.840254, 0.542192, -0.685818, 0.394593, -0.611514, 0, 1.85687, 3.01072)
@@ -282,20 +279,26 @@ theme_override_font_sizes/font_size = 50
 text = "One Lap"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Joey" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Joey Parker"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -15.5
-offset_right = 20.5
-offset_bottom = 15.5
+offset_left = -40.0
+offset_top = 220.0
+offset_right = 39.0
+offset_bottom = 283.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "3 2 1 Therapy???"
+text = "Exit
+"
 
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../../..")
@@ -305,6 +308,7 @@ libraries = {
 }
 
 [node name="TransitionColor" type="ColorRect" parent="CanvasLayer/Transition"]
+visible = false
 z_index = 20
 anchors_preset = 15
 anchor_right = 1.0
@@ -331,7 +335,7 @@ theme_override_font_sizes/font_size = 100
 text = "Loading..."
 
 [node name="musicSounds" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_lo2g4")
+stream = ExtResource("2_15oro")
 autoplay = true
 
 [node name="musicFader" type="AnimationPlayer" parent="musicSounds"]
@@ -341,6 +345,6 @@ libraries = {
 }
 
 [node name="buttonSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_q2vcc")
+stream = ExtResource("3_mdb8j")
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_start_button_pressed"]
