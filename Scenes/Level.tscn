@@ -144,7 +144,7 @@ energy = 4.0
 Sun = NodePath("../DirectionalLight3D")
 
 [node name="LightShiftTrigger4" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("13_flnak")]
-transform = Transform3D(84.2023, 0, -3.87287, 0, 29.884, 0, 112.147, 0, 2.90784, -1086.74, -44.037, -335.243)
+transform = Transform3D(84.2023, 0, -3.87287, 0, 29.884, 0, 112.147, 0, 2.90784, -1086.74, -48.0704, -335.243)
 energy = 4.0
 negativelight = true
 Sun = NodePath("../DirectionalLight3D")
@@ -238,6 +238,14 @@ show_dialogue_until = 65
 [node name="DialogueTrigger71+End" parent="Node3D" instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -319.558, -42.135, -684.299)
 show_dialogue_until = 71
+
+[node name="MusicShiftTrigger" parent="." instance=ExtResource("12_qlqn8")]
+transform = Transform3D(3.29476, 0, 75.5331, 0, 10, 0, -9.44164, 0, 26.3581, -1062.25, -47.8314, -371.838)
+music = "noise"
+
+[node name="MusicShiftTrigger2" parent="." instance=ExtResource("12_qlqn8")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 80, -816.917, -45.3062, -329.477)
+music = "fade"
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
 [connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
