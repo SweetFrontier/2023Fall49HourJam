@@ -13,14 +13,15 @@ func _ready():
 func _process(delta):
 	pass
 
-func _change_music():
-	print_debug("HELP");
+func _change_music(music:String):
 	if (currentlyAlternating):
 		volume_db = -80
+		stream = load("res://Audio/Music/"+music+".mp3")
 		play(altRadio.get_playback_position())
 		animationPlayer.play("ToRadio")
 	else:
 		altRadio.volume_db = -80
+		altRadio.stream = load("res://Audio/Music/"+music+".mp3")
 		altRadio.play(get_playback_position())
 		animationPlayer.play("ToAlt")
 	currentlyAlternating = !currentlyAlternating
