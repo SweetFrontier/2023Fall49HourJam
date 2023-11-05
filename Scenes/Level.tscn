@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
 [ext_resource type="PackedScene" uid="uid://seqfqhnwp3s4" path="res://Scenes/MusicShiftTrigger.tscn" id="12_qlqn8"]
 [ext_resource type="PackedScene" uid="uid://tsjxyo4kd1pl" path="res://Scenes/DialogueTrigger.tscn" id="13_3gy4k"]
-[ext_resource type="PackedScene" path="res://Scenes/LightShiftTrigger.tscn" id="13_flnak"]
+[ext_resource type="PackedScene" uid="uid://ckyjwdexf0dt0" path="res://Scenes/LightShiftTrigger.tscn" id="13_flnak"]
 [ext_resource type="Script" path="res://Scripts/DialogueTrigger.gd" id="13_nj3qf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
