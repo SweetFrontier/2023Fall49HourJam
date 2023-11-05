@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckyjwdexf0dt0"]
+
+[ext_resource type="Script" path="res://Scripts/LightShiftTrigger.gd" id="1_mt01f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqe5k"]
+
+[node name="LightShiftTrigger" type="Node3D"]
+script = ExtResource("1_mt01f")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_wqe5k")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
