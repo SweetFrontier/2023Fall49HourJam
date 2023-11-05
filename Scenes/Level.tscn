@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ymqb0oqbi3g" path="res://Scenes/Communication.tscn" id="11_7wyq8"]
 [ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
 [ext_resource type="PackedScene" uid="uid://seqfqhnwp3s4" path="res://Scenes/MusicShiftTrigger.tscn" id="12_qlqn8"]
-[ext_resource type="PackedScene" path="res://Scenes/DialogueTrigger.tscn" id="13_3gy4k"]
+[ext_resource type="PackedScene" uid="uid://tsjxyo4kd1pl" path="res://Scenes/DialogueTrigger.tscn" id="13_3gy4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
 sky_top_color = Color(0.184314, 0.729412, 1, 1)
@@ -29,7 +29,7 @@ sky = SubResource("Sky_dluij")
 [node name="Level" type="Node3D"]
 
 [node name="Racecar" parent="." instance=ExtResource("1_03ipr")]
-transform = Transform3D(0.00382042, -0.030717, -0.999521, 0.152609, 0.987838, -0.0297747, 0.988279, -0.152422, 0.00846165, -4.75653, -45.2238, 663.757)
+transform = Transform3D(0.370499, -0.0292552, 0.928372, 0.152609, 0.987838, -0.0297747, -0.91621, 0.152709, 0.370457, -32.9279, -45.2238, -634.219)
 max_contacts_reported = 1
 contact_monitor = true
 MAX_STEER = 1.5
@@ -107,7 +107,7 @@ offset_bottom = 150.0
 [node name="Environment" parent="." instance=ExtResource("11_w4mv8")]
 
 [node name="DialogueTrigger" parent="." instance=ExtResource("13_3gy4k")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 22.6457, -46.094, -626.55)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 22.6457, -46.094, -626.55)
 show_dialogue_until = 1
 
 [node name="MusicShiftTrigger_brass" parent="." instance=ExtResource("12_qlqn8")]
@@ -120,6 +120,10 @@ music = "piano"
 
 [node name="MusicShiftTrigger_violins" parent="." instance=ExtResource("12_qlqn8")]
 transform = Transform3D(2.33931, 0, 0, 0, 15.2608, 0, 0, 0, 72.2206, -1086.64, -44.0374, 207.165)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.903073, -0.102658, -0.417038, 0.336572, 0.772341, 0.53871, 0.266792, -0.626858, 0.732032, 0, 0, 0)
+shadow_enabled = true
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
 [connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
