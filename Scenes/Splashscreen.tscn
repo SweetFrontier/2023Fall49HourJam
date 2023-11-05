@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnhvyhyh6q3js"]
+
+[ext_resource type="VideoStream" path="res://Art/Splashscreen/Splashscreen.ogv" id="1_g56l0"]
+[ext_resource type="Script" path="res://Scripts/Splashscreen.gd" id="1_llblm"]
+[ext_resource type="AudioStream" uid="uid://c1lvhaw7su3uc" path="res://Audio/buttonPress.ogg" id="4_5jd64"]
+
+[sub_resource type="Animation" id="Animation_igtgx"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yhcph"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h2e48"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skip:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apohb"]
+_data = {
+"RESET": SubResource("Animation_yhcph"),
+"appear": SubResource("Animation_igtgx"),
+"disappear": SubResource("Animation_h2e48")
+}
+
+[sub_resource type="Animation" id="Animation_j0fqr"]
+resource_name = "fadeOut"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/TransitionColor:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/TransitionColor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rc1s"]
+_data = {
+"fadeOut": SubResource("Animation_j0fqr")
+}
+
+[node name="Splashscreen" type="Control" node_paths=PackedStringArray("videoPlayer", "transitionToBlack", "buttonSound", "SkipButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_llblm")
+videoPlayer = NodePath("VideoStreamPlayer")
+transitionToBlack = NodePath("Transition")
+buttonSound = NodePath("buttonsound")
+SkipButton = NodePath("skipr")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.602, 0.602)
+stream = ExtResource("1_g56l0")
+
+[node name="skipr" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_apohb")
+}
+
+[node name="Skip" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -490.0
+offset_top = -65.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Press 'esc' or double click to skip"
+
+[node name="buttonsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5jd64")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+autoplay = "fadeIn"
+libraries = {
+"": SubResource("AnimationLibrary_0rc1s")
+}
+
+[node name="TransitionColor" type="ColorRect" parent="Transition"]
+z_index = 20
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

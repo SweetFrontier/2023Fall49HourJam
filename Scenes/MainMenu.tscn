@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://7yulnf22mqsv"]
+[gd_scene load_steps=24 format=3 uid="uid://7yulnf22mqsv"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_coylk"]
+[ext_resource type="AudioStream" uid="uid://crlikl4pg4fey" path="res://Audio/Music/title.ogg" id="2_lo2g4"]
+[ext_resource type="AudioStream" uid="uid://c1lvhaw7su3uc" path="res://Audio/buttonPress.ogg" id="4_q2vcc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
 sky_top_color = Color(0.184314, 0.729412, 1, 1)
@@ -127,8 +129,118 @@ albedo_texture = SubResource("GradientTexture1D_dmglq")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_flddr"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="Animation" id="Animation_rfici"]
+resource_name = "fadeIn"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/CanvasLayer/Transition/TransitionColor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/CanvasLayer/Transition/TransitionColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pddxu"]
+resource_name = "fadeOutToLoadd"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/CanvasLayer/Transition/TransitionColor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/CanvasLayer/Transition/TransitionColor:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/CanvasLayer/Transition/Loading:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3t1k"]
+_data = {
+"fadeIn": SubResource("Animation_rfici"),
+"fadeOutToLoad": SubResource("Animation_pddxu")
+}
+
+[sub_resource type="Animation" id="Animation_i0010"]
+resource_name = "fadeOut"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("musicSounds:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("musicSounds:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yw1c8"]
+_data = {
+"fadeOut": SubResource("Animation_i0010")
+}
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("transitionPlayer", "musicSound", "buttonSound")]
 script = ExtResource("1_coylk")
+transitionPlayer = NodePath("CanvasLayer/Transition")
+musicSound = NodePath("musicSounds/musicFader")
+buttonSound = NodePath("buttonSound")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.727773, -0.371845, 0.576262, 0, 0.840254, 0.542192, -0.685818, 0.394593, -0.611514, 0, 1.85687, 3.01072)
@@ -183,5 +295,51 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "3 2 1 Therapy???"
+
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../../..")
+autoplay = "fadeIn"
+libraries = {
+"": SubResource("AnimationLibrary_t3t1k")
+}
+
+[node name="TransitionColor" type="ColorRect" parent="CanvasLayer/Transition"]
+z_index = 20
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Loading" type="Label" parent="CanvasLayer/Transition"]
+visible = false
+z_index = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.5
+offset_top = -70.0
+offset_right = 231.5
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Loading..."
+
+[node name="musicSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lo2g4")
+autoplay = true
+
+[node name="musicFader" type="AnimationPlayer" parent="musicSounds"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_yw1c8")
+}
+
+[node name="buttonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q2vcc")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_start_button_pressed"]
