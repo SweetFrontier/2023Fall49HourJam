@@ -38,6 +38,8 @@ func handleDialog() -> void:
 		#await $AudioStreamPlayer.finished
 		await get_tree().create_timer(0.5).timeout
 		$".".visible = false
+		if (dialogue_index == 71):
+			get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
 
 func update_dialogue(index: int = target_index + 1) -> void:
 	target_index = index

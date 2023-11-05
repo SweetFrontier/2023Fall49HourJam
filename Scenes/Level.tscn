@@ -234,8 +234,8 @@ show_dialogue_until = 62
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -791.465, -46.1674, -329.693)
 show_dialogue_until = 66
 
-[node name="DialogueTrigger71" parent="Node3D" instance=ExtResource("13_3gy4k")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -413.152, -42.8628, -684.299)
+[node name="DialogueTrigger71+End" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -319.558, -42.135, -684.299)
 show_dialogue_until = 71
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
