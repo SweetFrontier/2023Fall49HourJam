@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://pml0cladoa1c"]
+[gd_scene load_steps=24 format=3 uid="uid://c8fy2fbw26kua"]
 
 [ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_tkmu4"]
 [ext_resource type="AudioStream" uid="uid://crlikl4pg4fey" path="res://Audio/Music/title.ogg" id="2_15oro"]
