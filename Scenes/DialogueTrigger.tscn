@@ -5,6 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_rtrlr"]
 
 [node name="DialogueTrigger" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 0, 0, 0)
 script = ExtResource("1_bwt4h")
 
 [node name="Area3D" type="Area3D" parent="."]

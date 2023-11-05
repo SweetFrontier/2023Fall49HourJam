@@ -52,7 +52,7 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 			   ,{"Name":"Player", "Text": "[i]All I have to do is drive one last lap.[/i]"}
 			   ,{"Name":"Player", "Text": "[i]My hands are shaking. I can’t afford to be this nervous.[/i]"}
 			   ,{"Name":"Player", "Text": "It’s only one more lap."}
-			   ,{"Name":"Player", "Text": "Off I go."}
+			   ,{"Name":"Player", "Text": "Off I go."} #6
 			
 			   ,{"Name":"Player", "Text": "Can I even... do this?"}
 			   ,{"Name":"Player", "Text": "No! I-I… I have to..."}
@@ -75,17 +75,18 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 				,{"Name":"Mentor", "Text": "Are you afraid of what you want-"}
 				,{"Name":"Player", "Text": "Okay, yeah, sure..just let me focus"}
 				,{"Name":"Mentor", "Text": "Sure, kid.."}
-				,{"Name":"Mentor", "Text": "Whatever you want."}
+				,{"Name":"Mentor", "Text": "Whatever you want."} #28
 				#Snow section
 				,{"Name":"Mentor", "Text": "You’ve learned from last time right"}
 				,{"Name":"Player", "Text": "I don’t know, have I?"}
 				,{"Name":"Mentor", "Text": "I don’t know, have you?"}
 				,{"Name":"Mentor", "Text": "You didn’t get cold feet this time, kid"}
-				,{"Name":"Mentor", "Text": "Here you are, driving"}
+				,{"Name":"Mentor", "Text": "Here you are, driving"} #33
 				
 				,{"Name":"Mentor", "Text": "Alright, challenge area now, kid"}
 				,{"Name":"Player", "Text": "Huh, what? Since when?"}
-				,{"Name":"Mentor", "Text": "Since now"}
+				,{"Name":"Mentor", "Text": "Since now"} #36
+				
 				,{"Name":"Mentor", "Text": "Left"}
 				,{"Name":"Mentor", "Text": "Left"}
 				,{"Name":"Mentor", "Text": "Left"}
@@ -97,8 +98,9 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 				,{"Name":"Mentor", "Text": "Left"}
 				,{"Name":"Mentor", "Text": "Right"}
 				,{"Name":"Mentor", "Text": "Right"}
+				
 				,{"Name":"Player", "Text": "Not a single one of your instructions was right!"}
-				,{"Name":"Mentor", "Text": "Yeah, but you still did it, right?"}
+				,{"Name":"Mentor", "Text": "But you still did it, right?"}
 				,{"Name":"Player", "Text": "...hm"}
 				#right before the tunnel
 				,{"Name":"Player", "Text": "Okay, almost at the end"}

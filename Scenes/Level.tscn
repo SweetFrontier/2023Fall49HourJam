@@ -158,20 +158,85 @@ Sun = NodePath("../DirectionalLight3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3, -1)
 script = ExtResource("13_nj3qf")
 
-[node name="DialogueTrigger" parent="Node3D" instance=ExtResource("13_3gy4k")]
+[node name="DialogueTrigger47" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -1722.54, -42.798, -207.379)
+show_dialogue_until = 47
+
+[node name="DialogueTrigger46" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -1825.8, -42.4116, -243.068)
+show_dialogue_until = 46
+
+[node name="DialogueTrigger45" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2489.07, -42.4756, -431.534)
+show_dialogue_until = 45
+
+[node name="DialogueTrigger44" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -3009.37, -42.455, -468.725)
+show_dialogue_until = 44
+
+[node name="DialogueTrigger43" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2885.46, -42.8904, -173.858)
+show_dialogue_until = 43
+
+[node name="DialogueTrigger42" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2129.25, -42.9679, -50.2841)
+show_dialogue_until = 42
+
+[node name="DialogueTrigger41" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2577.79, -42.6439, -114.018)
+show_dialogue_until = 41
+
+[node name="DialogueTrigger40" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2878.69, -42.5788, -38.35)
+show_dialogue_until = 40
+
+[node name="DialogueTrigger39" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(7.52944, 0, -53.3049, 0, 10, 0, 6.58085, 0, 60.9884, -2959.11, -42.2502, 193.819)
+show_dialogue_until = 39
+
+[node name="DialogueTrigger38" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2779.26, -42.319, 241.557)
+show_dialogue_until = 38
+
+[node name="DialogueTrigger37" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2317.73, -42.2054, 189.431)
+show_dialogue_until = 37
+
+[node name="DialogueTrigger36" parent="Node3D" instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 80, -1847.64, -43.1879, 135.052)
+show_dialogue_until = 36
 
-[node name="DialogueTrigger5" parent="Node3D" instance=ExtResource("13_3gy4k")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -14.3543, -45.094, -636.55)
-show_dialogue_until = 5
-
-[node name="DialogueTrigger27" parent="Node3D" instance=ExtResource("13_3gy4k")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 220, -42.0526, -586.643)
-show_dialogue_until = 27
-
-[node name="DialogueTrigger32" parent="Node3D" instance=ExtResource("13_3gy4k")]
+[node name="DialogueTrigger33" parent="Node3D" instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 207.988, -42.5591, -4.35914)
-show_dialogue_until = 32
+show_dialogue_until = 33
+
+[node name="DialogueTrigger28" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 220, -42.0526, -586.643)
+show_dialogue_until = 28
+
+[node name="DialogueTrigger6" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -14.3543, -45.094, -636.55)
+show_dialogue_until = 6
+
+[node name="DialogueTrigger50" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(-0.838692, 0, -80.7146, 0, 10, 0, 9.96477, 0, -6.79341, -1541.72, -43.3927, -330.823)
+show_dialogue_until = 50
+
+[node name="DialogueTrigger57" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(9.99989, 0.0073004, 0.375281, -0.00753458, 9.99987, 0.409121, -0.0462935, -0.0505431, 80.9981, -1108.84, -42.8585, -847.646)
+show_dialogue_until = 57
+
+[node name="DialogueTrigger62" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(3.55662, 0, 75.7038, 0, 10, 0, -9.34615, 0, 28.8086, -1056.56, -42.6231, -391.201)
+show_dialogue_until = 62
+
+[node name="DialogueTrigger66" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -791.465, -46.1674, -329.693)
+show_dialogue_until = 66
+
+[node name="DialogueTrigger71" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -413.152, -42.8628, -684.299)
+show_dialogue_until = 71
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
 [connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
