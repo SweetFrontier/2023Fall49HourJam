@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpcwsp8fllas3"]
+[gd_scene load_steps=18 format=3 uid="uid://bpcwsp8fllas3"]
 
 [ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_03ipr"]
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="4_aty8r"]
@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
 [ext_resource type="PackedScene" uid="uid://seqfqhnwp3s4" path="res://Scenes/MusicShiftTrigger.tscn" id="12_qlqn8"]
 [ext_resource type="PackedScene" uid="uid://tsjxyo4kd1pl" path="res://Scenes/DialogueTrigger.tscn" id="13_3gy4k"]
-[ext_resource type="PackedScene" uid="uid://ckyjwdexf0dt0" path="res://Scenes/LightShiftTrigger.tscn" id="13_flnak"]
+[ext_resource type="PackedScene" path="res://Scenes/LightShiftTrigger.tscn" id="13_flnak"]
+[ext_resource type="Script" path="res://Scripts/DialogueTrigger.gd" id="13_nj3qf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
 sky_top_color = Color(0.184314, 0.729412, 1, 1)
@@ -93,12 +94,12 @@ offset_right = 1145.0
 offset_bottom = 150.0
 
 [node name="Racecar" parent="." instance=ExtResource("1_03ipr")]
-transform = Transform3D(0.370499, -0.0292552, 0.928372, 0.152609, 0.987838, -0.0297747, -0.91621, 0.152709, 0.370457, -32.9279, -45.2238, -634.219)
+transform = Transform3D(0.371368, 0, 0.928486, 0, 1, 0, -0.928486, 0, 0.371368, -17.1436, -47.2238, -627.906)
+mass = 20.0
 max_contacts_reported = 1
 contact_monitor = true
 MAX_STEER = 1.5
-ENGINE_POWER = 600
-MAX_SPEED = 600.0
+MAX_SPEED = 400.0
 metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Racecar"]
@@ -107,10 +108,6 @@ environment = SubResource("Environment_rawl0")
 fov = 69.9
 
 [node name="Environment" parent="." instance=ExtResource("11_w4mv8")]
-
-[node name="DialogueTrigger" parent="." instance=ExtResource("13_3gy4k")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 22.6457, -46.094, -626.55)
-show_dialogue_until = 1
 
 [node name="MusicShiftTrigger_brass" parent="." instance=ExtResource("12_qlqn8")]
 transform = Transform3D(140.239, 0, 0, 0, 29.8839, 0, 0, 0, 4.84339, 537.574, -41.0056, -39.1538)
@@ -137,7 +134,6 @@ Sun = NodePath("../DirectionalLight3D")
 transform = Transform3D(84.0065, 0, -3.87794, 0, 29.884, 0, 112.294, 0, 2.90107, -17.433, -45.27, 94.399)
 lightColor = Color(1, 1, 1, 1)
 energy = 2.0
-negativelight = true
 Sun = NodePath("../DirectionalLight3D")
 
 [node name="LightShiftTrigger3" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("13_flnak")]
@@ -157,6 +153,25 @@ transform = Transform3D(-50.7139, 0, -4.51524, 0, 29.884, 0, 130.748, 0, -1.7513
 lightColor = Color(1, 1, 1, 1)
 energy = 1.0
 Sun = NodePath("../DirectionalLight3D")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3, -1)
+script = ExtResource("13_nj3qf")
+
+[node name="DialogueTrigger" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 80, -1847.64, -43.1879, 135.052)
+
+[node name="DialogueTrigger5" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -14.3543, -45.094, -636.55)
+show_dialogue_until = 5
+
+[node name="DialogueTrigger27" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 220, -42.0526, -586.643)
+show_dialogue_until = 27
+
+[node name="DialogueTrigger32" parent="Node3D" instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 207.988, -42.5591, -4.35914)
+show_dialogue_until = 32
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
 [connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
