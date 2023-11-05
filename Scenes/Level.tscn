@@ -1,8 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpcwsp8fllas3"]
+[gd_scene load_steps=16 format=3 uid="uid://bpcwsp8fllas3"]
 
 [ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="1_03ipr"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_okwp7"]
-[ext_resource type="AudioStream" uid="uid://bu4lkvtyrho5s" path="res://Audio/Music/RaceOnceMusic.mp3" id="3_f1ggh"]
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="4_aty8r"]
 [ext_resource type="Texture2D" uid="uid://b66cmhidn4q12" path="res://Art/buttons/pause.png" id="4_bg4jk"]
 [ext_resource type="Texture2D" uid="uid://cxbq4nw0quapt" path="res://Art/buttons/pauseClicked.png" id="5_mk74g"]
@@ -12,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="10_ammnk"]
 [ext_resource type="PackedScene" uid="uid://d1ymqb0oqbi3g" path="res://Scenes/Communication.tscn" id="11_7wyq8"]
 [ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="11_w4mv8"]
+[ext_resource type="PackedScene" uid="uid://seqfqhnwp3s4" path="res://Scenes/MusicShiftTrigger.tscn" id="12_qlqn8"]
 [ext_resource type="PackedScene" path="res://Scenes/DialogueTrigger.tscn" id="13_3gy4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
@@ -33,15 +32,9 @@ sky = SubResource("Sky_dluij")
 transform = Transform3D(0.00382042, -0.030717, -0.999521, 0.152609, 0.987838, -0.0297747, 0.988279, -0.152422, 0.00846165, -4.75653, -45.2238, 663.757)
 max_contacts_reported = 1
 contact_monitor = true
-script = ExtResource("2_okwp7")
 MAX_STEER = 1.5
 ENGINE_POWER = 400
 metadata/_edit_group_ = true
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Racecar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590005, 0.972212, 1.09557)
-stream = ExtResource("3_f1ggh")
-autoplay = true
 
 [node name="Camera3D" type="Camera3D" parent="Racecar"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.75, -1)
@@ -116,6 +109,17 @@ offset_bottom = 150.0
 [node name="DialogueTrigger" parent="." instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 22.6457, -46.094, -626.55)
 show_dialogue_until = 1
+
+[node name="MusicShiftTrigger_brass" parent="." instance=ExtResource("12_qlqn8")]
+transform = Transform3D(140.239, 0, 0, 0, 29.8839, 0, 0, 0, 4.84339, 537.574, -41.0056, -39.1538)
+music = "brass"
+
+[node name="MusicShiftTrigger_piano" parent="." instance=ExtResource("12_qlqn8")]
+transform = Transform3D(7.79044, 0, 32.0562, 0, 28.5808, 0, -4.52432, 0, 55.1977, -17.4331, -45.2703, 94.399)
+music = "piano"
+
+[node name="MusicShiftTrigger_violins" parent="." instance=ExtResource("12_qlqn8")]
+transform = Transform3D(2.33931, 0, 0, 0, 15.2608, 0, 0, 0, 72.2206, -1086.64, -44.0374, 207.165)
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
 [connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
