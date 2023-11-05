@@ -9,6 +9,7 @@ extends VehicleBody3D
 @export var musicPlayer : AnimationPlayer
 @export var radio : AudioStreamPlayer3D
 @export var altRadio : AudioStreamPlayer3D
+@export var noise : AudioStreamPlayer3D
 var currentlyAlternating : bool = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frwwwwwwwwame.
@@ -22,14 +23,18 @@ func _physics_process(delta: float) -> void:
 
 
 func _change_music(music:String):
-	if (currentlyAlternating):
+	if (music == "fade"):
+		radio.stop()
+		altRadio.stop()
+		noise.stop()
+	elif (currentlyAlternating):
 		radio.volume_db = -80
-		radio.stream = load("res://Audio/Music/"+music+".mp3")
+		radio.stream = load("res://Audio/Music/"+music+".ogg")
 		radio.play(altRadio.get_playback_position())
 		musicPlayer.play("ToRadio")
 	else:
 		altRadio.volume_db = -80
-		altRadio.stream = load("res://Audio/Music/"+music+".mp3")
+		altRadio.stream = load("res://Audio/Music/"+music+".ogg")
 		altRadio.play(radio.get_playback_position())
 		musicPlayer.play("ToAlt")
 	currentlyAlternating = !currentlyAlternating
