@@ -4,7 +4,7 @@ extends VehicleBody3D
 
 @export var MAX_STEER: float = 0.4
 @export var ENGINE_POWER: int = 200
-
+@export var MAX_SPEED: float = 40
 #audio stuff
 @export var musicPlayer : AnimationPlayer
 @export var radio : AudioStreamPlayer3D
@@ -17,6 +17,9 @@ func _physics_process(delta: float) -> void:
 	engine_force = Input.get_axis("back", "forward") * ENGINE_POWER
 	quaternion.z = lerp(quaternion.z, 0.0, delta * 5)
 	quaternion.x = lerp(quaternion.x, 0.0, delta * 5)
+	print(linear_velocity.length())
+	if (linear_velocity.length() > 40):
+		engine_force = -100
 
 
 func _change_music(music:String):
