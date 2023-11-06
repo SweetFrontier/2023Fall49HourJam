@@ -1,0 +1,244 @@
+[gd_scene load_steps=18 format=3 uid="uid://codw7vgx7jw7k"]
+
+[ext_resource type="Texture2D" uid="uid://b66cmhidn4q12" path="res://Art/buttons/pause.png" id="1_q2a52"]
+[ext_resource type="Texture2D" uid="uid://cxbq4nw0quapt" path="res://Art/buttons/pauseClicked.png" id="2_a3j6j"]
+[ext_resource type="Texture2D" uid="uid://cvi41tp7ncl77" path="res://Art/buttons/pauseHover.png" id="3_qf2h3"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="4_wiku8"]
+[ext_resource type="Texture2D" uid="uid://bbm3kqjuk47qc" path="res://Art/buttons/play.png" id="5_7gc70"]
+[ext_resource type="Texture2D" uid="uid://u4gplrg663yv" path="res://Art/buttons/playClicked.png" id="6_i6bbt"]
+[ext_resource type="Texture2D" uid="uid://bb5jid0ahal35" path="res://Art/buttons/playHover.png" id="7_dq8ru"]
+[ext_resource type="PackedScene" uid="uid://d1ymqb0oqbi3g" path="res://Scenes/Communication.tscn" id="8_4fho2"]
+[ext_resource type="PackedScene" uid="uid://dhmahi207773c" path="res://Scenes/Racecar.tscn" id="9_34y0x"]
+[ext_resource type="PackedScene" uid="uid://h2ebsepmvony" path="res://Scenes/Environment.tscn" id="10_jvjiv"]
+[ext_resource type="PackedScene" uid="uid://seqfqhnwp3s4" path="res://Scenes/MusicShiftTrigger.tscn" id="11_oqjvi"]
+[ext_resource type="PackedScene" uid="uid://ckyjwdexf0dt0" path="res://Scenes/LightShiftTrigger.tscn" id="12_v8eqw"]
+[ext_resource type="Script" path="res://Scripts/DialogueTrigger.gd" id="13_6hjy1"]
+[ext_resource type="PackedScene" uid="uid://tsjxyo4kd1pl" path="res://Scenes/DialogueTrigger.tscn" id="14_gct1k"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ijkcj"]
+sky_top_color = Color(0.184314, 0.729412, 1, 1)
+sky_horizon_color = Color(0, 0.419608, 0.462745, 1)
+ground_bottom_color = Color(0.176471, 0.541176, 0.156863, 1)
+ground_horizon_color = Color(0.196078, 0.470588, 0.4, 1)
+
+[sub_resource type="Sky" id="Sky_dluij"]
+sky_material = SubResource("ProceduralSkyMaterial_ijkcj")
+
+[sub_resource type="Environment" id="Environment_rawl0"]
+background_mode = 2
+sky = SubResource("Sky_dluij")
+
+[node name="Level" type="Node3D"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PauseButton" type="TextureButton" parent="GUI"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 76.0
+focus_mode = 0
+texture_normal = ExtResource("1_q2a52")
+texture_pressed = ExtResource("2_a3j6j")
+texture_hover = ExtResource("3_qf2h3")
+
+[node name="PauseMenu" type="Control" parent="GUI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_wiku8")
+
+[node name="BackgroundColor" type="ColorRect" parent="GUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.337255, 0.337255, 0.337255, 0.768627)
+
+[node name="PauseLabel" type="Label" parent="GUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 50.0
+offset_right = 88.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+
+[node name="PlayButton" type="TextureButton" parent="GUI/PauseMenu"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 76.0
+offset_bottom = 76.0
+focus_mode = 0
+texture_normal = ExtResource("5_7gc70")
+texture_pressed = ExtResource("6_i6bbt")
+texture_hover = ExtResource("7_dq8ru")
+
+[node name="Communication" parent="GUI" instance=ExtResource("8_4fho2")]
+visible = false
+offset_left = 82.0
+offset_top = 5.0
+offset_right = 1145.0
+offset_bottom = 150.0
+
+[node name="Racecar" parent="." instance=ExtResource("9_34y0x")]
+transform = Transform3D(0.371368, 0, 0.928486, 0, 1, 0, -0.928486, 0, 0.371368, -17.1436, -47.2238, -627.906)
+mass = 20.0
+gravity_scale = 5.0
+max_contacts_reported = 1
+contact_monitor = true
+MAX_STEER = 1.5
+ENGINE_POWER = 400
+MAX_SPEED = 400.0
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="Racecar"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.75, -1)
+environment = SubResource("Environment_rawl0")
+fov = 69.9
+
+[node name="Environment" parent="." instance=ExtResource("10_jvjiv")]
+
+[node name="MusicShiftTrigger_brass" parent="." instance=ExtResource("11_oqjvi")]
+transform = Transform3D(140.239, 0, 0, 0, 29.8839, 0, 0, 0, 4.84339, 537.574, -41.0056, -39.1538)
+music = "brass"
+
+[node name="MusicShiftTrigger_piano" parent="." instance=ExtResource("11_oqjvi")]
+transform = Transform3D(7.79044, 0, 32.0562, 0, 28.5808, 0, -4.52432, 0, 55.1977, -17.4331, -45.2703, 94.399)
+music = "piano"
+
+[node name="MusicShiftTrigger_violins" parent="." instance=ExtResource("11_oqjvi")]
+transform = Transform3D(2.33931, 0, 0, 0, 15.2608, 0, 0, 0, 72.2206, -1086.64, -44.0374, 207.165)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.903073, -0.102658, -0.417038, 0.336572, 0.772341, 0.53871, 0.266792, -0.626858, 0.732032, 0, 0, 0)
+shadow_enabled = true
+
+[node name="LightShiftTrigger" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("12_v8eqw")]
+transform = Transform3D(140.239, 0, 0, 0, 29.884, 0, 0, 0, 4.843, 537.258, -40.2969, -32.0734)
+lightColor = Color(0.25098, 0, 1, 1)
+energy = 4.0
+Sun = NodePath("../DirectionalLight3D")
+
+[node name="LightShiftTrigger2" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("12_v8eqw")]
+transform = Transform3D(84.0065, 0, -3.87794, 0, 29.884, 0, 112.294, 0, 2.90107, -17.433, -45.27, 94.399)
+lightColor = Color(1, 1, 1, 1)
+energy = 2.0
+Sun = NodePath("../DirectionalLight3D")
+
+[node name="LightShiftTrigger3" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("12_v8eqw")]
+transform = Transform3D(-23.3875, 0, -4.77518, 0, 29.884, 0, 138.275, 0, -0.807661, -1086.64, -44.037, 207.165)
+lightColor = Color(1, 0.6, 0, 1)
+energy = 4.0
+Sun = NodePath("../DirectionalLight3D")
+
+[node name="LightShiftTrigger4" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("12_v8eqw")]
+transform = Transform3D(84.2023, 0, -3.87287, 0, 29.884, 0, 112.147, 0, 2.90784, -1086.74, -44.037, -335.243)
+energy = 4.0
+negativelight = true
+Sun = NodePath("../DirectionalLight3D")
+
+[node name="LightShiftTrigger5" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("12_v8eqw")]
+transform = Transform3D(-50.7139, 0, -4.51524, 0, 29.884, 0, 130.748, 0, -1.75135, -606.828, -44.037, -335.243)
+lightColor = Color(1, 1, 1, 1)
+energy = 1.0
+Sun = NodePath("../DirectionalLight3D")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3, -1)
+script = ExtResource("13_6hjy1")
+
+[node name="DialogueTrigger47" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -1722.54, -42.798, -207.379)
+show_dialogue_until = 47
+
+[node name="DialogueTrigger46" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -1825.8, -42.4116, -243.068)
+show_dialogue_until = 46
+
+[node name="DialogueTrigger45" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2489.07, -42.4756, -431.534)
+show_dialogue_until = 45
+
+[node name="DialogueTrigger44" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -3009.37, -42.455, -468.725)
+show_dialogue_until = 44
+
+[node name="DialogueTrigger43" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2885.46, -42.8904, -173.858)
+show_dialogue_until = 43
+
+[node name="DialogueTrigger42" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2129.25, -42.9679, -50.2841)
+show_dialogue_until = 42
+
+[node name="DialogueTrigger41" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2577.79, -42.6439, -114.018)
+show_dialogue_until = 41
+
+[node name="DialogueTrigger40" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2878.69, -42.5788, -38.35)
+show_dialogue_until = 40
+
+[node name="DialogueTrigger39" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(7.52944, 0, -53.3049, 0, 10, 0, 6.58085, 0, 60.9884, -2959.11, -42.2502, 193.819)
+show_dialogue_until = 39
+
+[node name="DialogueTrigger38" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2779.26, -42.319, 241.557)
+show_dialogue_until = 38
+
+[node name="DialogueTrigger37" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -2317.73, -42.2054, 189.431)
+show_dialogue_until = 37
+
+[node name="DialogueTrigger36" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 80, -1847.64, -43.1879, 135.052)
+show_dialogue_until = 36
+
+[node name="DialogueTrigger33" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 207.988, -42.5591, -4.35914)
+show_dialogue_until = 33
+
+[node name="DialogueTrigger28" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 220, -42.0526, -586.643)
+show_dialogue_until = 28
+
+[node name="DialogueTrigger6" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -14.3543, -45.094, -636.55)
+show_dialogue_until = 6
+
+[node name="DialogueTrigger50" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(-0.838692, 0, -80.7146, 0, 10, 0, 9.96477, 0, -6.79341, -1541.72, -43.3927, -330.823)
+show_dialogue_until = 50
+
+[node name="DialogueTrigger57" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(9.99989, 0.0073004, 0.375281, -0.00753458, 9.99987, 0.409121, -0.0462935, -0.0505431, 80.9981, -1108.84, -42.8585, -847.646)
+show_dialogue_until = 57
+
+[node name="DialogueTrigger61" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(3.55662, 0, 75.7038, 0, 10, 0, -9.34615, 0, 28.8086, -1056.56, -42.6231, -391.201)
+show_dialogue_until = 61
+
+[node name="DialogueTrigger65" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -791.465, -46.1674, -329.693)
+show_dialogue_until = 65
+
+[node name="DialogueTrigger71+End" parent="Node3D" instance=ExtResource("14_gct1k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -319.558, -42.135, -684.299)
+show_dialogue_until = 71
+
+[connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
+[connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
