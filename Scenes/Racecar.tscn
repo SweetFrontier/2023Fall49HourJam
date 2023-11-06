@@ -329,6 +329,7 @@ attenuation_model = 3
 [node name="StaticPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417, 1.118, 1.088)
 stream = ExtResource("4_c7a0n")
+autoplay = true
 
 [node name="Fusalage" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_lsmsc")
