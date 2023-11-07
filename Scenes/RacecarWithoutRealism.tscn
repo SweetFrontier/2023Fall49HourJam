@@ -1,11 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dhmahi207773c"]
+[gd_scene load_steps=26 format=3 uid="uid://dwk1xranflyks"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_inkei"]
-[ext_resource type="AudioStream" uid="uid://b562sprf45v8p" path="res://Audio/Music/guitar.ogg" id="2_j5myo"]
-[ext_resource type="AudioStream" uid="uid://bopcr2ixlfp3l" path="res://Audio/Music/piano.ogg" id="3_vnhtj"]
-[ext_resource type="AudioStream" uid="uid://d0si4bpwflmgk" path="res://Audio/Music/noise.ogg" id="4_c7a0n"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a4dxx"]
+[ext_resource type="Script" path="res://Scripts/RacecarWithoutRealism.gd" id="1_5dhgh"]
+[ext_resource type="AudioStream" uid="uid://b562sprf45v8p" path="res://Audio/Music/guitar.ogg" id="2_pxpjp"]
+[ext_resource type="AudioStream" uid="uid://bopcr2ixlfp3l" path="res://Audio/Music/piano.ogg" id="3_05gtu"]
+[ext_resource type="AudioStream" uid="uid://d0si4bpwflmgk" path="res://Audio/Music/noise.ogg" id="4_ph36o"]
 
 [sub_resource type="Animation" id="Animation_5ty37"]
 length = 0.001
@@ -305,12 +303,8 @@ bottom_radius = 1.05
 height = 0.6
 radial_segments = 24
 
-[node name="Racecar" type="VehicleBody3D" node_paths=PackedStringArray("musicPlayer", "radio", "altRadio", "noise")]
-inertia = Vector3(5, 5, 5)
-physics_material_override = SubResource("PhysicsMaterial_a4dxx")
-gravity_scale = 1.5
-angular_damp = 7.0
-script = ExtResource("1_inkei")
+[node name="RacecarWithoutRealism" type="CharacterBody3D" node_paths=PackedStringArray("musicPlayer", "radio", "altRadio", "noise")]
+script = ExtResource("1_5dhgh")
 musicPlayer = NodePath("AnimationPlayer")
 radio = NodePath("Radio")
 altRadio = NodePath("AlternatingRadio")
@@ -323,18 +317,18 @@ libraries = {
 
 [node name="Radio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417374, 1.11751, 1.08814)
-stream = ExtResource("2_j5myo")
+stream = ExtResource("2_pxpjp")
 attenuation_model = 3
 autoplay = true
 
 [node name="AlternatingRadio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417, 1.118, 1.088)
-stream = ExtResource("3_vnhtj")
+stream = ExtResource("3_05gtu")
 attenuation_model = 3
 
 [node name="StaticPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417, 1.118, 1.088)
-stream = ExtResource("4_c7a0n")
+stream = ExtResource("4_ph36o")
 autoplay = true
 
 [node name="Fusalage" type="MeshInstance3D" parent="."]
@@ -362,49 +356,22 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_dt54f")
 skeleton = NodePath("")
 
-[node name="FR" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23179, -0.721203, 2.597)
-use_as_steering = true
-wheel_rest_length = 0.5
-suspension_stiffness = 100.0
-damping_compression = 1.9
-damping_relaxation = 2.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FR"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.23179, -0.721203, 2.597)
 mesh = SubResource("CylinderMesh_wnhda")
+skeleton = NodePath("")
 
-[node name="FL" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99537, -0.721203, 2.597)
-use_as_steering = true
-wheel_rest_length = 0.5
-suspension_stiffness = 100.0
-damping_compression = 1.9
-damping_relaxation = 2.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FL"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.224256, 0, 0)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.21963, -0.721203, 2.597)
 mesh = SubResource("CylinderMesh_wnhda")
+skeleton = NodePath("")
 
-[node name="BR" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23179, -0.721203, -5.40659)
-use_as_traction = true
-wheel_rest_length = 0.5
-suspension_stiffness = 100.0
-damping_compression = 1.9
-damping_relaxation = 2.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BR"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1, 0, 0)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.23179, -0.721203, -5.40659)
 mesh = SubResource("CylinderMesh_wnhda")
+skeleton = NodePath("")
 
-[node name="BL" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22716, -0.721203, -5.40659)
-wheel_rest_length = 0.5
-suspension_stiffness = 100.0
-damping_compression = 1.9
-damping_relaxation = 2.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BL"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.22716, -0.721203, -5.40659)
 mesh = SubResource("CylinderMesh_wnhda")
+skeleton = NodePath("")

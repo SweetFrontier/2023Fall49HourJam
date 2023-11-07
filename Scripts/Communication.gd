@@ -113,7 +113,7 @@ var dialogue = [{"Name":"Mentor", "Text":"Alright, kid. With graduation coming u
 				,{"Name":"Mentor", "Text": "Yeah..."}
 				,{"Name":"Mentor", "Text": "You've got this, kid"}
 				,{"Name":"Player", "Text": "Huh?"}
-				,{"Name":"Mentor", "Text": "The tunnel is coming up won't be able to communicate"}
+				,{"Name":"Mentor", "Text": "With the tunnel coming up, we won't be able to communicate."}
 				,{"Name":"Player", "Text": "What?! Wait-"} #57
 				
 				,{"Name":"Player", "Text": "I can’t do this alone!"}

@@ -1,5 +1,6 @@
-class_name Player
-extends VehicleBody3D
+#class_name Player
+extends CharacterBody3D
+
 
 @export var MAX_STEER: float = 0.4
 @export var ENGINE_POWER: int = 200
@@ -10,29 +11,28 @@ extends VehicleBody3D
 @export var altRadio : AudioStreamPlayer3D
 @export var noise : AudioStreamPlayer3D
 var currentlyAlternating : bool = false
-var perceptualEnginePower: int = 200
 
-func _ready():
-	perceptualEnginePower = ENGINE_POWER
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-# Called every frame. 'delta' is the elapsed time since the previous frwwwwwwwwame.
-func _physics_process(delta: float) -> void:
-	steering = lerp(steering, Input.get_axis("right", "left") * MAX_STEER * 0.4, 5 * delta)
-	engine_force = Input.get_axis("back", "forward") * perceptualEnginePower
-	quaternion.z = lerp(quaternion.z, 0.0, delta * 5)
-	quaternion.x = lerp(quaternion.x, 0.0, delta * 5)
-	if (linear_velocity.length() > MAX_SPEED):
-		engine_force = -100
-	if (Input.is_action_just_pressed("boost")):
-		perceptualEnginePower = ENGINE_POWER*1.2
-	elif (Input.is_action_just_released("boost")):
-		perceptualEnginePower = ENGINE_POWER
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	if (Input.is_action_pressed("ui_up")):
+		velocity += transform.basis * Vector3(0,0,MAX_SPEED)
+
+	move_and_slide()
+
 
 
 func _change_music(music:String):
 	if (music == "fade"):
 		radio.stop()
 		altRadio.stop()
+		noise.stop()
 	elif (currentlyAlternating):
 		radio.volume_db = -80
 		radio.stream = load("res://Audio/Music/"+music+".ogg")

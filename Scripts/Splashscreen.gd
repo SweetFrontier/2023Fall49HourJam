@@ -23,6 +23,8 @@ func _process(delta):
 			skipTimer = 0
 			SkipButton.play("disappear")
 			skipVisible = false
+	videoPlayer.scale.x = get_viewport_rect().size.x/1920
+	videoPlayer.scale.y = get_viewport_rect().size.y/1080
 
 func _input(event : InputEvent):
 	if (event is InputEventKey and event.keycode == KEY_ESCAPE) or (event is InputEventMouseButton and event.is_double_click()):

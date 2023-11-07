@@ -42,6 +42,13 @@ texture_normal = ExtResource("4_bg4jk")
 texture_pressed = ExtResource("5_mk74g")
 texture_hover = ExtResource("6_fr2uf")
 
+[node name="Communication" parent="GUI" instance=ExtResource("11_7wyq8")]
+visible = false
+offset_left = 82.0
+offset_top = 5.0
+offset_right = 1145.0
+offset_bottom = 150.0
+
 [node name="PauseMenu" type="Control" parent="GUI"]
 process_mode = 3
 visible = false
@@ -86,21 +93,15 @@ texture_normal = ExtResource("8_h38bi")
 texture_pressed = ExtResource("9_noodl")
 texture_hover = ExtResource("10_ammnk")
 
-[node name="Communication" parent="GUI" instance=ExtResource("11_7wyq8")]
-visible = false
-offset_left = 82.0
-offset_top = 5.0
-offset_right = 1145.0
-offset_bottom = 150.0
-
 [node name="Racecar" parent="." instance=ExtResource("1_03ipr")]
 transform = Transform3D(0.371368, 0, 0.928486, 0, 1, 0, -0.928486, 0, 0.371368, -17.1436, -47.2238, -627.906)
-mass = 20.0
+inertia = Vector3(0, 0, 0)
 max_contacts_reported = 1
 contact_monitor = true
 freeze = true
 MAX_STEER = 1.5
-MAX_SPEED = 400.0
+ENGINE_POWER = 400
+MAX_SPEED = 700.0
 metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Racecar"]
@@ -150,7 +151,8 @@ negativelight = true
 Sun = NodePath("../DirectionalLight3D")
 
 [node name="LightShiftTrigger5" parent="." node_paths=PackedStringArray("Sun") instance=ExtResource("13_flnak")]
-transform = Transform3D(-50.7139, 0, -4.51524, 0, 29.884, 0, 130.748, 0, -1.75135, -804.307, -44.037, -335.243)
+transform = Transform3D(-49.4657, 0, -4.53172, 0, 29.884, 0, 131.225, 0, -1.70824, -804.307, -44.037, -335.243)
+visible = false
 lightColor = Color(1, 1, 1, 1)
 energy = 1.0
 Sun = NodePath("../DirectionalLight3D")
@@ -209,7 +211,7 @@ show_dialogue_until = 36
 
 [node name="DialogueTrigger33" parent="Node3D" instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 207.988, -42.5591, -4.35914)
-show_dialogue_until = 33
+show_dialogue_until = 31
 
 [node name="DialogueTrigger28" parent="Node3D" instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, 220, -42.0526, -586.643)
@@ -233,7 +235,7 @@ show_dialogue_until = 61
 
 [node name="DialogueTrigger65" parent="Node3D" instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -791.465, -46.1674, -329.693)
-show_dialogue_until = 65
+show_dialogue_until = 69
 
 [node name="DialogueTrigger71+End" parent="Node3D" instance=ExtResource("13_3gy4k")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -319.558, -42.135, -684.299)
@@ -245,7 +247,12 @@ music = "noise"
 
 [node name="MusicShiftTrigger2" parent="." instance=ExtResource("12_qlqn8")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 80, -816.917, -45.3062, -329.477)
+visible = false
 music = "fade"
+
+[node name="DialogueTrigger" parent="." instance=ExtResource("13_3gy4k")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 81, -886.758, -46.5744, 232.867)
+show_dialogue_until = 33
 
 [connection signal="pressed" from="GUI/PauseButton" to="GUI/PauseMenu" method="_pause_toggle"]
 [connection signal="pressed" from="GUI/PauseMenu/PlayButton" to="GUI/PauseMenu" method="_pause_toggle"]
